@@ -16,14 +16,14 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('welcome');
-});
+}); */
 
-Route::get('/welcomereact', function () {
+Route::get('/', function () {
     $user = new User();
     $user->name = "Mr. Bean";
-    return Inertia::render('Welcome', ['user' => $user]);
+    return Inertia::render('Home', ['user' => $user]);
 });
 
 Auth::routes(['verify' => true]); //Activa la verificación en las rutas para laravel/ui
