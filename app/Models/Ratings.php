@@ -10,7 +10,7 @@ class Ratings extends Model
     use HasFactory;
 
     protected $fillable = [
-        'rating_id',
+        
         'user1_id',
         'user2_id',
         'score',

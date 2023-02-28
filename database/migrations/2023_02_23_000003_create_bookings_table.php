@@ -23,7 +23,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create($this->tableName, function (Blueprint $table) {
-            $table->increments('idbookings');
+            $table->id();
             $table->unsignedInteger('idtravels');
             $table->unsignedInteger('idusers');
 

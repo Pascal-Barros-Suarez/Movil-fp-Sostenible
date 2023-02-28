@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use Inertia\Inertia;
+use App\Http\Controllers\TravelsController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,5 +30,9 @@ Route::get('/welcomereact', function () {
 
 Auth::routes(['verify' => true]); //Activa la verificación en las rutas para laravel/ui
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
+
+//////////////////////////////
+Route::get('/travels', [TravelsController::class, 'index']);
+//////////////////////////////
 
 Auth::routes();

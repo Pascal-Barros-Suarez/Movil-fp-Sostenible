@@ -9,8 +9,9 @@ class Travels extends Model
 {
     use HasFactory;
 
+    protected $table = 'travels';
     protected $fillable = [
-        'travel_id',
+        
         'origin',
         'destination',
         'date',
