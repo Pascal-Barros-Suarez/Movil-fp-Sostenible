@@ -20,3 +20,7 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => true]); //Activa la verificación en las rutas para laravel/ui
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware(['auth','verified'])->name('home');
+
+Auth::routes();
+
+
