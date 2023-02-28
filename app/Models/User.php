@@ -20,9 +20,11 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $fillable = [
         'name',
         'email',
-        'password',
+        'blocked',
+        'validated',
+        'coupon',
     ];
-
+    
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -30,6 +32,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $hidden = [
         'password',
+        'admin',
         'remember_token',
     ];
 
