@@ -1,15 +1,26 @@
-/**
- * Next, we will create a fresh React component instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-//import './components/Example';
+import React from "react";
+//import './Example';
+
+//componentes
+import Navigation from '../components/Navigation';
+import Header from '../components/Header';
+import IconsGrid from '../components/IconsGrid';
+import ShowCase from '../components/ShowCase';
+import Testimonials from '../components/Testimonials';
+import CallToAction from '../components/CallToAction';
+import Footer from '../components/Footer.jsx';
 
 
 export default function Welcome({ user }) {
     return (
         <>
-            <h1>Welcome</h1><p>Hello {user.name}, welcome to your first Inertia app!</p>
+            <Navigation user={user} />
+            <Header />
+            <IconsGrid />
+            <ShowCase />
+            <Testimonials />
+            <CallToAction />
+            <Footer /><h1>Welcome</h1><p>Hello {user.name}, welcome to your first Inertia app!</p>
         </>
     )
 }
