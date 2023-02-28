@@ -24,7 +24,7 @@ if (document.getElementById('example')) {
 
     Index.render(
         <React.StrictMode>
-            <Example/>
+            <Example />
         </React.StrictMode>
     )
 }
