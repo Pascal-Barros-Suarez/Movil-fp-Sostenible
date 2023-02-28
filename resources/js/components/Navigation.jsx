@@ -1,6 +1,6 @@
 import { Link } from "@inertiajs/react"
 
-export default function Navigation(user) {
+export default function Navigation(props) {
   return (<nav className="navbar navbar-expand-lg navbar-dark bg-dark p-3">
     <div className="container-fluid">
       <a className="navbar-brand" href="/">MoviFP Sostenible</a>
@@ -28,14 +28,14 @@ export default function Navigation(user) {
           @else
           <li className="nav-item dropdown">
             <a className="nav-link mx-2 dropdown-toggle bi bi-person-circle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-               {user.name ? user.name : 'User'}
+               {props.user.name ? props.user.name : 'User'}
             </a>
             <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <li><a className="dropdown-item bi bi-car-front" href="#">My rides</a></li>
               <li><a className="dropdown-item bi bi-chat" href="#">Messages</a></li>
               <li><a className="dropdown-item bi bi-credit-card" href="#">Payments</a></li>
               <li><a className="dropdown-item bi bi-person-circle" href="#">Profile</a></li>
-              <li><a className="dropdown-item bi bi-door-closed" href="{{ route('logout') }}" onclick="event.preventDefault();
+              <li><a className="dropdown-item bi bi-door-closed" href="{{ route('logout') }}" onClick="event.preventDefault();
 									document.getElementById('logout-form').submit();">
                 Logout
               </a>

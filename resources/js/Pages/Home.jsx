@@ -20,7 +20,8 @@ export default function Welcome({ user }) {
             <ShowCase />
             <Testimonials />
             <CallToAction />
-            <Footer /><h1>Welcome</h1><p>Hello {user.name}, welcome to your first Inertia app!</p>
+            <Footer />
+            {/* <h1>Welcome</h1><p>Hello {user.name}, welcome to your first Inertia app!</p> */}
         </>
     )
 }
