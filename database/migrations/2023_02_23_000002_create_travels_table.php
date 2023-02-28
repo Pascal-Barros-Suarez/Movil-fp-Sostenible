@@ -31,13 +31,13 @@ return new class extends Migration
             $table->tinyInteger('seats')->nullable();
             $table->timestamp('created_at')->nullable();
             $table->timestamp('update_at')->nullable();
-            $table->unsignedInteger('idusers');
+            $table->unsignedInteger('user_id');
 
-            $table->index(["idusers"], 'fk_travels_users_idx');
+            $table->index(["user_id"], 'fk_travels_users_idx');
 
 
-            $table->foreign('idusers', 'fk_travels_users_idx')
-                ->references('idusers')->on('users')
+            $table->foreign('user_id', 'fk_travels_users_idx')
+                ->references('user_id')->on('users')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });
