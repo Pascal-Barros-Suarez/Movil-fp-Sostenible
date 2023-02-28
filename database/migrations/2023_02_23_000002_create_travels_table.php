@@ -23,7 +23,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create($this->tableName, function (Blueprint $table) {
-            $table->increments('idtravels');
+            $table->id();
             $table->string('origin', 45)->nullable();
             $table->string('destination', 45)->nullable();
             $table->date('date')->nullable();

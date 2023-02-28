@@ -25,18 +25,18 @@ return new class extends Migration
 
         Schema::create($this->tableName, function (Blueprint $table) {
 
-            $table->increments('idusers');
+            $table->id();
             $table->string('name', 45);
             $table->string('email', 45);
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password', 45);
+            $table->string('password', 255);
             $table->tinyInteger('admin')->nullable();
             $table->tinyInteger('blocked')->nullable();
             $table->tinyInteger('validated')->nullable();
             $table->double('coupon')->nullable();
             $table->string('remember_token')->nullable();
 
-            $table->unique(["idusers"], 'idusers_UNIQUE');
+            $table->unique(["id"], 'id_UNIQUE');
 
             $table->unique(["email"], 'email_UNIQUE');
             $table->nullableTimestamps();
