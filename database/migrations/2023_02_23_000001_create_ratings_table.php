@@ -6,8 +6,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Schema table name to migrate
      * @var string
@@ -23,11 +22,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create($this->tableName, function (Blueprint $table) {
-            $table->integer('idratings')->primary();;
+            $table->id();
             $table->integer('score')->nullable();
             $table->text('coment')->nullable();
-            $table->unsignedInteger('user1_id');
-            $table->unsignedInteger('user2_id');
+            $table->unsignedBigInteger('user1_id');
+            $table->unsignedBigInteger('user2_id');
 
             $table->index(["user1_id"], 'fk_ratings_users1_idx');
 
@@ -36,12 +35,12 @@ return new class extends Migration
 
 
             $table->foreign('user1_id', 'fk_ratings_users1_idx')
-                ->references('idusers')->on('users')
+                ->references('id')->on('users')
                 ->onDelete('no action')
                 ->onUpdate('no action');
 
             $table->foreign('user2_id', 'fk_ratings_users2_idx')
-                ->references('idusers')->on('users')
+                ->references('id')->on('users')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });
