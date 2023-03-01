@@ -16,4 +16,8 @@ class TravelsController extends Controller
         return response()->json($travels);
     }
 
+    public function create()
+    {
+        return view('travels.create');
+    }
 }

@@ -30,7 +30,7 @@ return new class extends Migration
             $table->string('email', 45);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password', 255);
-            $table->tinyInteger('admin')->nullable();
+            $table->boolean('admin')->nullable();
             $table->tinyInteger('blocked')->nullable();
             $table->tinyInteger('validated')->nullable();
             $table->double('coupon')->nullable();
