@@ -1,52 +1,53 @@
-import { Link } from "@inertiajs/react"
+import React from "react";
+import { usePage } from '@inertiajs/react';
+import { Link } from '@inertiajs/react';
+import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
 
-export default function Navigation(props) {
-  return (<nav className="navbar navbar-expand-lg navbar-dark bg-dark p-3">
-    <div className="container-fluid">
-      <a className="navbar-brand" href="/">MoviFP Sostenible</a>
-      <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span className="navbar-toggler-icon" />
-      </button>
-      <div className=" collapse navbar-collapse" id="navbarNavDropdown">
-        <ul className="navbar-nav ms-auto ">
-          <li className="nav-item">
-            <a className="nav-link mx-2 active bi bi-house" aria-current="page" href="/">Home</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link mx-2 bi bi-search" href="#">Search</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link mx-2 bi bi-car-front" href="#">Publish a ride</a>
-          </li>
-          @guest
-          <li className="nav-item">
-            <a className="nav-link mx-2 bi bi-door-open" href="login">Login</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link mx-2 bi bi-check-circle" href="register">Sign up</a>
-          </li>
-          @else
-          <li className="nav-item dropdown">
-            <a className="nav-link mx-2 dropdown-toggle bi bi-person-circle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-               {props.user ? props.user.name : 'User'}
-            </a>
-            <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a className="dropdown-item bi bi-car-front" href="#">My rides</a></li>
-              <li><a className="dropdown-item bi bi-chat" href="#">Messages</a></li>
-              <li><a className="dropdown-item bi bi-credit-card" href="#">Payments</a></li>
-              <li><a className="dropdown-item bi bi-person-circle" href="#">Profile</a></li>
-              <li><a className="dropdown-item bi bi-door-closed" href="logout" onClick="event.preventDefault();
-									document.getElementById('logout-form').submit();">
-                Logout
-              </a>
-                <form id="logout-form" action="logout" method="POST" className="d-none">
-                  @csrf
-                </form></li>
-            </ul>
-          </li>
-          @endguest
-        </ul>
-      </div>
-    </div>
-  </nav>)
-};
+export default function Navigation() {
+  const { auth } = usePage().props.user;
+  console.log('usepage',auth);
+
+  return (
+    <Navbar variant="drk" bg="dark" expand="lg" className="p-3">
+      <Container fluid>a
+        <Navbar.Brand href="/">MoviFP Sostenible</Navbar.Brand>
+        <Navbar.Toggle aria-controls="navbar-dark-example" />
+        <Navbar.Collapse id="navbar-dark-example">
+          <Nav className="ms-auto">
+            <Nav.Link href="/" className="mx-2 bi bi-house"> Home</Nav.Link>
+            <Nav.Link href="/" className="mx-2 bi bi-search"> Search</Nav.Link>
+            <Nav.Link href="/" className="mx-2 bi bi-car-front"> Publish a ride</Nav.Link>
+            {auth == null &&
+              <>
+                <Nav.Link href="/login" className="mx-2 bi bi-door-open"> Log in</Nav.Link>
+                <Nav.Link href="/register" className="mx-2 bi bi-check-circle"> Sign up</Nav.Link>
+              </>
+            }
+            {auth != null &&
+              <NavDropdown
+                id="nav-dropdown"
+                title={auth.name}
+                menuVariant="dark"
+                align="end"
+                className="mx-2"
+              >
+                <NavDropdown.Item href="#"><i className='bi bi-car-front pe-3'></i>My rides</NavDropdown.Item>
+                <NavDropdown.Item href="#"><i className='bi bi-chat pe-3'></i>Messages</NavDropdown.Item>
+                <NavDropdown.Item href="#"><i className='bi bi-credit-card pe-3'></i>Payments</NavDropdown.Item>
+                <NavDropdown.Item href="#"><i className='bi bi-person-circle pe-3'></i>Profile</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item>
+                  <Link href="/logout" method="post" as="NavDropDown.Item">
+                    <i className='bi bi-door-closed pe-3'></i>
+                    Log out
+                  </Link>
+                </NavDropdown.Item>
+              </NavDropdown>
+            }
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar >
+  )
+}
+

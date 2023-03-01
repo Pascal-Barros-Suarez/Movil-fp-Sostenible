@@ -14,7 +14,7 @@ import Footer from '../components/Footer.jsx';
 export default function Welcome({ user }) {
     return (
         <>
-            <Navigation user={user} />
+            <Navigation />
             <Header />
             <IconsGrid />
             <ShowCase />
