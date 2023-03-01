@@ -25,9 +25,9 @@ use App\Http\Controllers\UserController;
 }); */
 
 Route::get('/', function () {
-    $user = new User();
-    $user->name = "Mr. Bean";
-return Inertia::render('Home', ['user' => $user]);
+    // $user = new User();
+    // $user->name = "Mr. Bean";
+return Inertia::render('Home', /*['user' => $user]*/);
 });
 
 Auth::routes(['verify' => true]); //Activa la verificación en las rutas para laravel/ui
