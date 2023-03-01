@@ -25,7 +25,7 @@ return new class extends Migration
 
         Schema::create($this->tableName, function (Blueprint $table) {
 
-            $table->id();
+            $table->unsignedInteger('idusers')->primary();;
             $table->string('name', 45);
             $table->string('email', 45);
             $table->timestamp('email_verified_at')->nullable();
@@ -36,7 +36,7 @@ return new class extends Migration
             $table->double('coupon')->nullable();
             $table->string('remember_token')->nullable();
 
-            $table->unique(["id"], 'id_UNIQUE');
+            $table->unique(["idusers"], 'id_UNIQUE');
 
             $table->unique(["email"], 'email_UNIQUE');
             $table->nullableTimestamps();

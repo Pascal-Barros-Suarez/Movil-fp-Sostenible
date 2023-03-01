@@ -23,7 +23,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create($this->tableName, function (Blueprint $table) {
-            $table->id();
+            $table->integer('idratings')->primary();;
             $table->integer('score')->nullable();
             $table->text('coment')->nullable();
             $table->unsignedInteger('user1_id');
