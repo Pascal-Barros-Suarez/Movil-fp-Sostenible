@@ -36,7 +36,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->midd
 //////////////////////////////
 Route::get('/travels', [TravelsController::class, 'index'])->name('travels.index');
 Route::get('/newride', [TravelsController::class, 'create'])->middleware(['auth', 'verified'])->name('travels.create');
-Route::get('/logout', [UserController::class, 'logout']);
+
 //////////////////////////////
 
 Auth::routes();
