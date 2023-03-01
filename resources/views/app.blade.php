@@ -48,6 +48,8 @@
 
 <body>
     @inertia
+    @include('layouts.partials.footerscripts')
+
 </body>
 
 </html>
