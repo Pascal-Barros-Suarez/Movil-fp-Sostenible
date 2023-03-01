@@ -28,7 +28,7 @@ export default function Navigation(props) {
           @else
           <li className="nav-item dropdown">
             <a className="nav-link mx-2 dropdown-toggle bi bi-person-circle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-               {props.user.name ? props.user.name : 'User'}
+               {props.user ? props.user.name : 'User'}
             </a>
             <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <li><a className="dropdown-item bi bi-car-front" href="#">My rides</a></li>
