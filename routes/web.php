@@ -32,7 +32,8 @@ Auth::routes(['verify' => true]); //Activa la verificación en las rutas para la
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
 
 //////////////////////////////
-Route::get('/travels', [TravelsController::class, 'index']);
+Route::get('/travels', [TravelsController::class, 'index'])->name('travels.index');
+Route::get('/newride', [TravelsController::class, 'create'])->middleware(['auth', 'verified'])->name('travels.create');
 //////////////////////////////
 
 Auth::routes();
