@@ -20,10 +20,10 @@ export default function Navigation(props) {
           </li>
           @guest
           <li className="nav-item">
-            <a className="nav-link mx-2 bi bi-door-open" href="{{ route('login') }}">Login</a>
+            <a className="nav-link mx-2 bi bi-door-open" href="login">Login</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link mx-2 bi bi-check-circle" href="{{ route('register') }}">Sign up</a>
+            <a className="nav-link mx-2 bi bi-check-circle" href="register">Sign up</a>
           </li>
           @else
           <li className="nav-item dropdown">
@@ -35,11 +35,11 @@ export default function Navigation(props) {
               <li><a className="dropdown-item bi bi-chat" href="#">Messages</a></li>
               <li><a className="dropdown-item bi bi-credit-card" href="#">Payments</a></li>
               <li><a className="dropdown-item bi bi-person-circle" href="#">Profile</a></li>
-              <li><a className="dropdown-item bi bi-door-closed" href="{{ route('logout') }}" onClick="event.preventDefault();
+              <li><a className="dropdown-item bi bi-door-closed" href="logout" onClick="event.preventDefault();
 									document.getElementById('logout-form').submit();">
                 Logout
               </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" className="d-none">
+                <form id="logout-form" action="logout" method="POST" className="d-none">
                   @csrf
                 </form></li>
             </ul>
