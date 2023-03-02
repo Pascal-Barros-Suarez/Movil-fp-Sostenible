@@ -2,16 +2,16 @@
 
 @section('content')
 
-<form method="POST" action="">
+<form method="POST" action="{{ route('travels.create') }}">
     @csrf
     <div class="form-group">
         <label for="origin">Origen:</label>
-        <input type="text" class="form-control" name="destination" id="destination" required>
+        <input type="text" class="form-control" name="origin" id="origin" required>
     </div>
 
     <div class="form-group">
         <label for="destination">Destino:</label>
-        <input type="text" class="form-control" name="departure_date" id="departure_date" required>
+        <input type="text" class="form-control" name="destination" id="destination" required>
     </div>
 
     <div class="form-group">
@@ -21,7 +21,7 @@
 
     <div class="form-group">
         <label for="time">Hora:</label>
-        <input type="time" class="form-control" name="time" id="time" required>
+        <input type="time" class="form-control" name="hour" id="hour" required>
     </div>
 
     <div class="form-group">
@@ -34,10 +34,6 @@
         <input type="number" class="form-control" name="seats" id="seats" required>
     </div>
 
-    <div class="form-group">
-        <label for="created">Creado:</label>
-        <input type="date" class="form-control" name="created" id="created" required>
-    </div>
 
     <button type="submit" class="btn btn-primary">Enviar</button>
 </form>

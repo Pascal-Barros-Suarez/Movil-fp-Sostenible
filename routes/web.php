@@ -36,8 +36,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->midd
 //////////////////////////////
 Route::get('/travels', [TravelsController::class, 'index'])->name('travels.index');
 //F O R M //
-Route::get('/newride', [TravelsController::class, 'create'])->name('newride.form');
-Route::post('/newride', [TravelsController::class, 'create'])->name('newride.form');
+Route::get('/newride', [TravelsController::class, 'show'])->name('newride.form');
+Route::post('/newride', [TravelsController::class, 'create'])->name('travels.create');
 //////////////////////////////
 
 Auth::routes();
