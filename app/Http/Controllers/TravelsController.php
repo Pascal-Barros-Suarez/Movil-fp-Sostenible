@@ -17,8 +17,22 @@ class TravelsController extends Controller
         return view('travels.index', compact('travels'));
     }
 
+
+
     public function create()
     {
-        return view('travels.create');
+        //lo lleva al formulario
+        return view('travelsForm.index');
     }
+
+    public function store(Request $request)
+{
+    // $travel = new Travels;
+    // $travel->destination = $request->destination;
+    // $travel->departure_date = $request->departure_date;
+    // $travel->seats = $request->seats;
+    // $travel->save();
+
+    // return redirect()->route('travels.index');
+}
 }

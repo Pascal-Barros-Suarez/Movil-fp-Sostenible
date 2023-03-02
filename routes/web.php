@@ -35,8 +35,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->midd
 
 //////////////////////////////
 Route::get('/travels', [TravelsController::class, 'index'])->name('travels.index');
-Route::get('/newride', [TravelsController::class, 'create'])->middleware(['auth', 'verified'])->name('travels.create');
-
+//F O R M //
+Route::get('/newride', [TravelsController::class, 'create'])->name('newride.form');
+Route::post('/newride', [TravelsController::class, 'create'])->name('newride.form');
 //////////////////////////////
 
 Auth::routes();
