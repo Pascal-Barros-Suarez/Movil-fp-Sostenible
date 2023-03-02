@@ -4,8 +4,9 @@ import { Link } from '@inertiajs/react';
 import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
 
 export default function Navigation() {
-  const { auth } = usePage().props.user;
-  console.log('usepage', auth);
+  const { auth } = usePage().props;
+  console.log('funcion usePage', usePage());
+  console.log('auth', auth);
 
   return (
     <Navbar variant="drk" bg="dark" expand="lg" className="p-3">
@@ -16,18 +17,18 @@ export default function Navigation() {
           <Nav className="ms-auto">
             <Nav.Link href="/" className="mx-2 bi bi-house"> Home</Nav.Link>
             <Nav.Link href="/" className="mx-2 bi bi-search"> Search</Nav.Link>
-            {auth == null &&
+            {usePage().props.user == null &&
               <>
                 <Nav.Link href="/login" className="mx-2 bi bi-door-open"> Log in</Nav.Link>
                 <Nav.Link href="/register" className="mx-2 bi bi-check-circle"> Sign up</Nav.Link>
               </>
             }
-            {auth != null &&
+            {usePage().props.user != null &&
               <>
                 <Nav.Link href="/" className="mx-2 bi bi-car-front"> Publish a ride</Nav.Link>
                 <NavDropdown
                   id="nav-dropdown"
-                  title={auth.name}
+                  title={usePage().props.user.name}
                   menuVariant="dark"
                   align="end"
                   className="mx-2"

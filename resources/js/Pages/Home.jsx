@@ -3,14 +3,14 @@ import React from "react";
 
 //componentes
 import Navigation from '../components/Navigation';
-import Dasboard from '../components/Dasboard';
+import Dashboard from '../components/Dashboard';
 import Footer from '../components/Footer.jsx';
 
 export default function Initiated() {
     return (
         <>
             <Navigation />
-            <Dasboard />
+            <Dashboard />
             <Footer />
         </>
     )

@@ -11,7 +11,7 @@ import CallToAction from '../components/CallToAction';
 import Footer from '../components/Footer.jsx';
 
 
-export default function Initiated({ user }) {
+export default function Initiated() {
     return (
         <>
             <Navigation />
