@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Inertia\Inertia;
-use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -25,9 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $user = new User();
-        $user->name = 'Mr Bean';
-
+        $user = Auth::user();
         return Inertia::render('Home', ['user' => $user]);
     }
 }
