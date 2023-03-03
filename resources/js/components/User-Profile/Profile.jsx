@@ -5,7 +5,7 @@ import { Container, Card, Col, Row, } from "react-bootstrap";
 
 export default function Profile(props) {
   const { auth } = usePage().props; // para poder acceder tienes que entrar en el handleInertiaRequest en midelware y establecerlo
-  //console.log(auth.user)
+  console.log(auth.user)
   let created = createDate(auth.user.created_at);
   let lastUpdated = createDate(auth.user.updated_at);
 
@@ -29,6 +29,8 @@ export default function Profile(props) {
                   <p>Name: {auth.user.name}</p>
                   <p>Password: ********</p>
                   <p>Email: {auth.user.email}</p>
+                  <p>Years: {auth.user.years ? auth.user.years : "Not specified"}</p>
+                  <p>Smoker: {auth.user.smoker ? auth.user.smoker : "Not specified"}</p>
                   <p>Coupon: {auth.user.coupon ? auth.user.coupon : "don't have coupons"}</p>
                 </div>
 

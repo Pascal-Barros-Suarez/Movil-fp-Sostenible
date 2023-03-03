@@ -5,13 +5,10 @@ import { Container, Card, Col, Row, } from "react-bootstrap";
 
 export default function EditProfile(props) {
     const { auth } = usePage().props; // para poder acceder tienes que entrar en el handleInertiaRequest en midelware y establecerlo
-    console.log(auth.user)
-    let created = createDate(auth.user.created_at);
-    let lastUpdated = createDate(auth.user.updated_at);
-
+    //console.log(auth.user);
 
     return (
-        <Container>
+        <Container> {/* ruta para el formulario profile-edit */}
             <div className="row justify-content-center">
                 <div className="col-md-10">
                     <Card>
@@ -27,12 +24,12 @@ export default function EditProfile(props) {
                                 <div className="col-sm-6 col-12 ps-2">
                                     <p>id: {auth.user.id}</p>
                                     <p>Name: {auth.user.name}</p>
-
                                     <p>Email: {auth.user.email}</p>
+                                    <p>Years: {auth.user.years ? auth.user.years : "Not specified"}</p>
+                                    <p>Smoker: {auth.user.smoker ? auth.user.smoker : "Not specified"}</p>
                                 </div>
                                 <div className="d-flex justify-content-end mb-3 m-3 ">
-                                    <a type="btn" href="#" className=" me-4 btn-sm btn-primary">Change Password</a>
-                                    <a type="btn" href="#" className=" me-4 btn-sm btn-primary" onClick={props.change} >Edit</a>
+                                    <button type href="#" className=" me-4 btn-sm btn-primary" onClick={props.change}>Edit</button>
                                 </div>
                             </Row>
                         </div>

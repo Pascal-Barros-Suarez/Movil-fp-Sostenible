@@ -36,13 +36,13 @@ Route::get('/500', function () {
     Route::view('500');
 });
 
+// USER //
+Route::post('/profile-edit', [UserController::class, 'editProfile'])->name('User.edit->Profile');
+Route::get('/profile', [UserController::class, 'show'])->name('User.show->Profile');
 
 Auth::routes(['verify' => true]); //Activa la verificación en las rutas para laravel/ui
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
 
-// USER //
-Route::get('/profile', [UserController::class, 'show'])->name('User.show->Profile');
-//Route::get('/profile-edit', [UserController::class, 'editProfile'])->name('User.edit->Profile');
 
 //////////////////////////////
 Route::get('/travels', [TravelsController::class, 'index'])->name('travels.index');
