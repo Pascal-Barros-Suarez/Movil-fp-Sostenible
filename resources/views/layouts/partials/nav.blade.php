@@ -14,17 +14,17 @@
 				
 				<a class="nav-link mx-2 bi bi-search" href="/travels"> {{__('Search')}}</a>
 			</li>
+			@guest
+			<li class="nav-item">
+				<a class="nav-link mx-2 bi bi-door-open" href="{{ route('login') }}"> {{__('Login')}}</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link mx-2 bi bi-check-circle" href="{{ route('register') }}"> {{__('Sign up')}}</a>
+			</li>	
+			@else
 			<li class="nav-item">
 				<a class="nav-link mx-2 bi bi-car-front" href="/newride"> {{__('Publish a ride')}}</a>
 			</li>
-			@guest
-				<li class="nav-item">
-					<a class="nav-link mx-2 bi bi-door-open" href="{{ route('login') }}"> {{__('Login')}}</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link mx-2 bi bi-check-circle" href="{{ route('register') }}"> {{__('Sign up')}}</a>
-				</li>	
-			@else
 			<li class="nav-item dropdown">
 				<a class="nav-link mx-2 dropdown-toggle bi bi-person-circle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 					{{ Auth::user()->name }}

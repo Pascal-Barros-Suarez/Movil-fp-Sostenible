@@ -4,9 +4,8 @@ import { Link } from '@inertiajs/react';
 import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
 
 export default function Navigation() {
-  const { auth } = usePage().props;
-  console.log('funcion usePage', usePage());
-  console.log('auth', auth);
+  const { auth } = usePage().props; // para poder acceder tienes que entrar en el handleInertiaRequest en midelware y establecerlo
+
 
   return (
     <Navbar variant="drk" bg="dark" expand="lg" className="p-3">
@@ -17,18 +16,18 @@ export default function Navigation() {
           <Nav className="ms-auto">
             <Nav.Link href="/" className="mx-2 bi bi-house"> Home</Nav.Link>
             <Nav.Link href="/" className="mx-2 bi bi-search"> Search</Nav.Link>
-            {usePage().props.user == null &&
+            {auth.user == null &&
               <>
                 <Nav.Link href="/login" className="mx-2 bi bi-door-open"> Log in</Nav.Link>
                 <Nav.Link href="/register" className="mx-2 bi bi-check-circle"> Sign up</Nav.Link>
               </>
             }
-            {usePage().props.user != null &&
+            {auth.user != null &&
               <>
                 <Nav.Link href="/" className="mx-2 bi bi-car-front"> Publish a ride</Nav.Link>
                 <NavDropdown
                   id="nav-dropdown"
-                  title={usePage().props.user.name}
+                  title={auth.user.name}
                   menuVariant="dark"
                   align="end"
                   className="mx-2"
@@ -36,7 +35,7 @@ export default function Navigation() {
                   <NavDropdown.Item href="#"><i className='bi bi-car-front pe-3'></i>My rides</NavDropdown.Item>
                   <NavDropdown.Item href="#"><i className='bi bi-chat pe-3'></i>Messages</NavDropdown.Item>
                   <NavDropdown.Item href="#"><i className='bi bi-credit-card pe-3'></i>Payments</NavDropdown.Item>
-                  <NavDropdown.Item href="#"><i className='bi bi-person-circle pe-3'></i>Profile</NavDropdown.Item>
+                  <NavDropdown.Item href="/profile"><i className='bi bi-person-circle pe-3'></i>Profile</NavDropdown.Item>
                   <NavDropdown.Divider />
                   <NavDropdown.Item>
                     <Link href="/logout" method="post" as="NavDropDown.Item">
