@@ -28,6 +28,15 @@ Route::get('/', function () {
     return Inertia::render('Initiated');
 });
 
+//errores 404 y 500
+Route::get('/404', function () {
+    Route::view('404');
+});
+Route::get('/500', function () {
+    Route::view('500');
+});
+
+
 Auth::routes(['verify' => true]); //Activa la verificación en las rutas para laravel/ui
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
 
