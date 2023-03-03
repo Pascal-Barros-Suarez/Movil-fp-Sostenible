@@ -33,7 +33,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->midd
 
 // USER //
 Route::get('/profile', [UserController::class, 'show'])->name('User.show->Profile');
-Route::get('/profile-edit', [UserController::class, 'editProfile'])->name('User.edit->Profile');
+//Route::get('/profile-edit', [UserController::class, 'editProfile'])->name('User.edit->Profile');
 
 //////////////////////////////
 Route::get('/travels', [TravelsController::class, 'index'])->name('travels.index');
