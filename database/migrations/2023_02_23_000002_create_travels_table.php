@@ -30,7 +30,7 @@ return new class extends Migration {
             $table->integer('price')->nullable();
             $table->tinyInteger('seats')->nullable();
             $table->timestamp('created_at')->nullable();
-            $table->timestamp('update_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
             $table->unsignedBigInteger('idusers');
 
             $table->index(["idusers"], 'fk_travels_users_idx');
