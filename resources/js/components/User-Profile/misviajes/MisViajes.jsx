@@ -31,7 +31,7 @@ class Table extends Component {
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-md-10">
-            <div className="mx-auto h1">Mis Viajes</div>
+            <h1 className="text-center">Mis Viajes</h1>
             <table className="table table-hover">
               <thead>
                 <tr>
