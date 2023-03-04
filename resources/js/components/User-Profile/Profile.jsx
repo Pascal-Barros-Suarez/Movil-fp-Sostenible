@@ -5,7 +5,7 @@ import { Container, Card, Col, Row, } from "react-bootstrap";
 
 export default function Profile(props) {
   const { auth } = usePage().props; // para poder acceder tienes que entrar en el handleInertiaRequest en midelware y establecerlo
-  console.log(auth.user)
+  console.log(auth)
   let created = createDate(auth.user.created_at);
   let lastUpdated = createDate(auth.user.updated_at);
 
@@ -29,7 +29,7 @@ export default function Profile(props) {
                   <p>Name: {auth.user.name}</p>
                   <p>Password: ********</p>
                   <p>Email: {auth.user.email}</p>
-                  <p>Years: {auth.user.years ? auth.user.years : "Not specified"}</p>
+                  <p>Age: {auth.user.age ? auth.user.age : "Not specified"}</p>
                   <p>Smoker: {auth.user.smoker ? auth.user.smoker : "Not specified"}</p>
                   <p>Coupon: {auth.user.coupon ? auth.user.coupon : "don't have coupons"}</p>
                 </div>
@@ -68,15 +68,3 @@ function createDate(date) {
   const createdDate = anio + '-' + mes + '-' + dia;
   return createdDate;
 }
-
-/*
-blocked:null
-coupon:null
-created_at:"2023-03-01T18:58:35.000000Z"
-email:"123456789@gmail.com"
-email_verified_at:
-id:1
-name:"123456789"
-updated_at:
-validated:null
-*/

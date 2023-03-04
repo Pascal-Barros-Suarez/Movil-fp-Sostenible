@@ -30,8 +30,8 @@ return new class extends Migration
             $table->string('email', 45);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password', 255);
-            $table->Integer('years')->nullable();
-            $table->tinyInteger('smoker')->nullable();
+            $table->Integer('age')->nullable();
+            $table->string('smoker', 100)->nullable();
             $table->tinyInteger('admin')->nullable();
             $table->tinyInteger('blocked')->nullable();
             $table->tinyInteger('validated')->nullable();
