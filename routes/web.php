@@ -49,11 +49,13 @@ Route::get('/travels', [TravelsController::class, 'index'])->name('travels.index
 //F O R M //
 Route::get('/newride', [TravelsController::class, 'show'])->name('newride.form');
 Route::post('/newride', [TravelsController::class, 'create'])->name('travels.create');
-//////////////////////////////
-// detalles viajes
-Route::post('/get/individual/viaje/details',[TravelsController::class, 'getViajesList'])->name('viajes.details');
+
 //////////////////////////////
 // lista de viajes if auth
 Route::get('/get/viajes/list', [TravelsController::class, 'getViajesList'])->name('viajes.lista');
+
+//////////////////////////////
+// detalles viajes
+Route::post('/get/individual/viaje/details',[TravelsController::class, 'getViajesList'])->name('viajes.details');
 ///////////////////////////
 Auth::routes();
