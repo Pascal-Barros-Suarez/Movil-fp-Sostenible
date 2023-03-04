@@ -37,18 +37,18 @@ Route::get('/500', function () {
 });
 
 // USER //
-Route::post('/profile-edit', [UserController::class, 'editProfile'])->name('User.edit->Profile');
 Route::get('/profile', [UserController::class, 'show'])->name('User.show->Profile');
+Route::post('/profile-edit', [UserController::class, 'editProfile'])->name('User.edit->Profile');
 
 Auth::routes(['verify' => true]); //Activa la verificación en las rutas para laravel/ui
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
 
 
 //////////////////////////////
-Route::get('/travels', [TravelsController::class, 'index'])->name('travels.index');
+Route::get('/travels', [TravelsController::class, 'index'])->name('travels.index')->middleware(['auth', 'verified'])->name('travels');
 //F O R M //
-Route::get('/newride', [TravelsController::class, 'show'])->name('newride.form');
-Route::post('/newride', [TravelsController::class, 'create'])->name('travels.create');
+Route::get('/newride', [TravelsController::class, 'show'])->name('newride.form')->middleware(['auth', 'verified'])->name('newride.form');
+Route::post('/newride', [TravelsController::class, 'create'])->name('travels.create')->middleware(['auth', 'verified'])->name('newride');
 //////////////////////////////
 
 Auth::routes();
