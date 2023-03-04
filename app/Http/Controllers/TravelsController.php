@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 /////////////////////////
 use App\Models\Travels;
+use Exception;
 use Illuminate\Support\Facades\Auth;
 /////////////////////////
 use Illuminate\Http\Request;
@@ -34,7 +35,7 @@ class TravelsController extends Controller
         $travel->seats = $request->input('seats');
         $travel->idusers = Auth::user()->id; // set user_id to the id of the currently authenticated user
         $travel->save();
-    
+
         return redirect()->route('travels.index');
 
         //lo lleva al formulario
@@ -42,13 +43,26 @@ class TravelsController extends Controller
     }
 
     public function store(Request $request)
-{
-    // $travel = new Travels;
-    // $travel->destination = $request->destination;
-    // $travel->departure_date = $request->departure_date;
-    // $travel->seats = $request->seats;
-    // $travel->save();
+    {
+        // $travel = new Travels;
+        // $travel->destination = $request->destination;
+        // $travel->departure_date = $request->departure_date;
+        // $travel->seats = $request->seats;
+        // $travel->save();
 
-    // return redirect()->route('travels.index');
-}
+        // return redirect()->route('travels.index');
+    }
+
+    /////////////  LISTA DE VIAJES DASHBOARD  //////////////
+    public function getViajesList()
+    {
+        $travels = Travels::orderBy('id', 'DESC')->get();
+        return response()->json($travels);
+    }
+    /////////////  DETALLES DE VIAJES DASHBOARD INDIVIDUAL //////////////
+    public function getViajesDetails(Request $request)
+    {
+        $viajeDatos = Travels::findOrFail($request->get('viajeId'));
+        return response()->json($viajeDatos);
+    }
 }
