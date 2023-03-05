@@ -27,7 +27,8 @@ use App\Http\Controllers\UserController;
 Route::get('/', function () {
     return Inertia::render('Initiated');
 });
-
+//una vez logueados
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
 //errores 404 y 500
 Route::get('/404', function () {
     Route::view('404');
