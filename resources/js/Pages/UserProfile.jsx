@@ -21,7 +21,6 @@ export default function UserProfile() {
 
     if (editingPass == false && editing == false) {
         component = <Profile change={change} changePassword={changePassword}  />;
-
     } else if (editing == true) {
         component = <EditProfile change={change} />;
     } else if (editingPass == true) {
