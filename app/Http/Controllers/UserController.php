@@ -38,8 +38,8 @@ class UserController extends Controller
         $user->save();
         $user->get();
 
-        // Session::flash('success', 'The User was updated successfully!');
-        
+        Session::flash('success', 'The User was updated successfully!');
+
     }
     function editPassword(PasswordForm $request, User $user)
     {
@@ -51,8 +51,8 @@ class UserController extends Controller
         $user->password = Hash::make($validatedData['password']);
         $user->save();
         $user->get();
-        
-        // Session::flash('success', 'The password was changed successfully!');
-        return Inertia::render('Initiated');//->with('success', 'The password was changed successfully!');
+
+        Session::flash('success', 'The password was changed successfully!');
+        return Inertia::render('Initiated'); //->with('success', 'The password was changed successfully!');
     }
 }

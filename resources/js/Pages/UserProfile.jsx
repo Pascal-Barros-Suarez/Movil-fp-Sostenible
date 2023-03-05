@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { usePage } from "@inertiajs/react";
+
 //componets
 import Navigation from '../components/Navigation';
 import Profile from '../components/User-Profile/Profile';
@@ -8,6 +10,7 @@ import Footer from '../components/Footer.jsx';
 
 export default function UserProfile() {
     let component;
+    const { flash } = usePage().props;
     const [editing, setEditing] = useState(false);
     const [editingPass, setEditingPass] = useState(false);
 
@@ -26,11 +29,11 @@ export default function UserProfile() {
     } else if (editingPass == true) {
         component = <EditPassword />;
     }
-    
+
     return (
         <>
-        {flash.success ? <h3 className="h-100 m-0 bg-success">{flash.success}</h3> : ''}
             <Navigation />
+            {flash.success ? <h3 className="h-100 m-0 bg-success fa fa-flash">{flash.success}</h3> : ''}
             {component}
             <Footer />
         </>

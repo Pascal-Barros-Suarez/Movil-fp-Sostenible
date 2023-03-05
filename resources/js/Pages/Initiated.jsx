@@ -17,7 +17,7 @@ export default function Initiated() {
     return (
         <>
             <Navigation />
-            {flash.success ? <h3 className="h-100 m-0 bg-success">{flash.success}</h3> : ''}
+            {flash.success ? <h3 className="h-100 m-0 bg-success fa fa-flash">{flash.success}</h3> : ''}
             <Header />
             <IconsGrid />
             <ShowCase />
