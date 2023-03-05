@@ -49,7 +49,10 @@ Route::get('/search', [App\Http\Controllers\HomeController::class, 'index'])->na
 //////////////////////////////
 //////////////////////////////
 // T E M P O R A L
-Route::get('/search', [TravelsController::class, 'getViajesListAll'])->name('viajes.lista');
+// Route::get('/search', [TravelsController::class, 'getViajesListAll'])->name('viajes.lista');
+Route::get('/search', function () {
+    return Inertia::render('Search');
+});
 //F O R M //
 Route::get('/newride', [TravelsController::class, 'show'])->middleware(['auth', 'verified'])->name('newride.form');
 Route::post('/newride', [TravelsController::class, 'create'])->middleware(['auth', 'verified'])->name('newride');

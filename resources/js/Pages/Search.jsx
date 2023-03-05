@@ -1,18 +1,18 @@
-import React from 'react';
+
+import React from "react";
+//import './Example';
+
 //componentes
 import Navigation from '../components/Navigation';
-import TravelTable from '../components/TravelTable.jsx';
 import Footer from '../components/Footer.jsx';
-const Search = ({ travelTable }) => {
+import Table from "../components/TravelTable";
+
+export default function Initiated() {
   return (
     <>
-        <Navigation />
-      <h1 className='text-center'>Viajes Disponibles</h1>
-      {travelTable}
-      <Search travelTable={<TravelTable />} />
-      <Footer/>
+      <Navigation />
+      <Table></Table>
+      <Footer />
     </>
-  );
-};
-
-export default Search;
+  )
+}
