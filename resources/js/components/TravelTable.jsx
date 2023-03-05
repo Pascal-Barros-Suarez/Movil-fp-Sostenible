@@ -18,7 +18,7 @@ class Table extends Component {
   //coger lista
   getViajesList = () => {
     let self = this;
-    axios.get('/get/viajes/list').then(function (response) {
+    axios.get('/get/viajes/list/all/').then(function (response) {
       self.setState({
         viajes: response.data
       });
