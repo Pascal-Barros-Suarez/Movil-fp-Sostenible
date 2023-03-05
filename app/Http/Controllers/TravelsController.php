@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 /////////////////////////
 use App\Models\Travels;
+use Inertia\Inertia;
 use Error;
 use Exception;
 use Illuminate\Support\Facades\Auth;
@@ -53,7 +54,15 @@ class TravelsController extends Controller
 
         // return redirect()->route('travels.index');
     }
-
+    public function getViajesListAll()
+    {
+        // $travels = Travels::orderBy('id', 'DESC')->get();
+        // return response()->json($travels);
+        $travels = Travels::all();
+        return Inertia::render('Search', [
+            'travels' => $travels,
+        ]);
+    }
     /////////////  LISTA DE VIAJES DASHBOARD  //////////////
     public function getViajesList()
     {

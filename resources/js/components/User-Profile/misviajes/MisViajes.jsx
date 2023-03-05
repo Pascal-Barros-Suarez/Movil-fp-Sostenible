@@ -31,8 +31,12 @@ class Table extends Component {
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-md-10">
-            <h1 className="text-center">Mis Viajes</h1>
-            <table className="table table-hover">
+            <div className="card">
+              <div className="card-header">
+              <h1 className="text-center">Mis Viajes</h1>
+              </div>
+              <div className="card-body">
+              <table className="table table-hover">
               <thead>
                 <tr>
                   <th scope="col" width="12%">#</th>
@@ -53,6 +57,8 @@ class Table extends Component {
                 
               </tbody>
             </table>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -9,8 +9,6 @@ use App\Http\Controllers\TravelsController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SearchController;
 
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,17 +43,17 @@ Route::post('/profile-edit', [UserController::class, 'editProfile'])->name('User
 
 Auth::routes(['verify' => true]); //Activa la verificación en las rutas para laravel/ui
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
-Route::get('/search')->name('search');
-
+Route::get('/search', [App\Http\Controllers\HomeController::class, 'index'])->name('search');
+//////////////////////////////
+//////////////////////////////
 //////////////////////////////
 // T E M P O R A L
-Route::get('/search', [SearchController::class, 'index'])->name('search');
-// Route::get('/search', [TravelsController::class, 'index'])->name('travels.index')->middleware(['auth', 'verified'])->name('travels');
-// T E M P O R A L
+Route::get('/search', [TravelsController::class, 'getViajesListAll'])->name('viajes.lista');
 //F O R M //
 Route::get('/newride', [TravelsController::class, 'show'])->middleware(['auth', 'verified'])->name('newride.form');
 Route::post('/newride', [TravelsController::class, 'create'])->middleware(['auth', 'verified'])->name('newride');
-
+//////////////////////////////
+//////////////////////////////
 //////////////////////////////
 // lista de viajes if auth
 Route::get('/get/viajes/list', [TravelsController::class, 'getViajesList'])->name('viajes.lista');
