@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Inertia\Inertia;
 use App\Http\Requests\UserForm;
 use App\Http\Requests\PasswordForm;
+use Illuminate\Support\Facades\Session;
 
 
 class UserController extends Controller
@@ -37,7 +38,7 @@ class UserController extends Controller
         $user->save();
         $user->get();
 
-        //$request->session()->flash('success', 'The User was updated successfully!');
+        // Session::flash('success', 'The User was updated successfully!');
         
     }
     function editPassword(PasswordForm $request, User $user)
@@ -51,7 +52,7 @@ class UserController extends Controller
         $user->save();
         $user->get();
         
-        $request->session()->flash('success', 'The password was changed successfully!');
+        // Session::flash('success', 'The password was changed successfully!');
         return Inertia::render('Initiated');//->with('success', 'The password was changed successfully!');
     }
 }

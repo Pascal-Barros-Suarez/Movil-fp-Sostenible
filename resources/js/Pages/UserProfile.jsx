@@ -14,24 +14,23 @@ export default function UserProfile() {
     function change() {
         setEditing(!editing);
     }
-    
+
     function changePassword() {
         setEditingPass(!editingPass);
     }
 
     if (editingPass == false && editing == false) {
-        component = <Profile change={change} changePassword={changePassword}  />;
+        component = <Profile change={change} changePassword={changePassword} />;
     } else if (editing == true) {
         component = <EditProfile change={change} />;
     } else if (editingPass == true) {
-        component = <EditPassword/>;
+        component = <EditPassword />;
     }
-
-
+    
     return (
         <>
+        {flash.success ? <h3 className="h-100 m-0 bg-success">{flash.success}</h3> : ''}
             <Navigation />
-            {flash.success ? <h3 className="h-100 m-0 bg-success">{flash.success}</h3> : ''}
             {component}
             <Footer />
         </>
