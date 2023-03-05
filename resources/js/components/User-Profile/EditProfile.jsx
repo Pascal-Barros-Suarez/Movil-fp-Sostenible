@@ -21,7 +21,6 @@ export default function EditProfile(props) {
             {
                 onSuccess: () => {
                     props.change();
-                    //console.log("success");
                 },
                 onError: () => { console.log('errores estos', errors); },
             },
