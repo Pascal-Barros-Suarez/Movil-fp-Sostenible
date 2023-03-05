@@ -58,10 +58,8 @@ class TravelsController extends Controller
     {
         // $travels = Travels::orderBy('id', 'DESC')->get();
         // return response()->json($travels);
-        $travels = Travels::all()->orderBy('id', 'DESC')->get();
-        return Inertia::render('Search', [
-            'travels' => $travels,
-        ]);
+        $travels = Travels::orderBy('id', 'DESC')->get();
+        return response()->json($travels);
     }
     /////////////  LISTA DE VIAJES DASHBOARD  //////////////
     public function getViajesList()
