@@ -56,10 +56,9 @@ class TravelsController extends Controller
     }
     public function getViajesListAll()
     {
-        // $travels = Travels::orderBy('id', 'DESC')->get();
-        // return response()->json($travels);
-        $travels = Travels::orderBy('id', 'DESC')->get();
-        return response()->json($travels);
+        // ->get() por paginate cambiar si roto
+        $travels = Travels::orderBy('id', 'DESC')->paginate(10);
+    return response()->json($travels);
     }
     /////////////  LISTA DE VIAJES DASHBOARD  //////////////
     public function getViajesList()
