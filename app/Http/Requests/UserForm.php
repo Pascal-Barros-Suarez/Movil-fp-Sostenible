@@ -16,7 +16,6 @@ class UserForm  extends FormRequest
             'age' => 'integer',
             'email' => 'required|email|max:255|unique:users,email,' . $this->user()->id,
             'smoker' => 'string|max:100',
-            // 'password' => 'required|string|min:8|confirmed',
         ];
     }
 } 

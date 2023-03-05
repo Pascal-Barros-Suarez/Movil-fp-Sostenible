@@ -7,7 +7,7 @@ import { Container, Card, Row, Form, FormControl, Button } from "react-bootstrap
 export default function EditProfile(props) {
     const { auth } = usePage().props; // para poder acceder tienes que entrar en el handleInertiaRequest en midelware y establecerlo
     //console.log(auth.user);profile-edit
-    const { data, setData, post, errors } = useForm({
+    const { data, setData, post, processing, errors } = useForm({
         name: auth.user.name,
         age: auth.user.age,
         email: auth.user.email,
@@ -46,7 +46,7 @@ export default function EditProfile(props) {
                                 <div className="col-sm-8 col-12 ps-2">
                                     <Form onSubmit={handleSubmit}>
 
-                                        <Form.Group controlId="formBasicEmail">
+                                        <Form.Group controlId="formBasicName">
                                             <Form.Label>Name</Form.Label>
                                             <FormControl type="text" name='name' placeholder={auth.user.name} defaultValue={auth.user.name} onChange={(e) =>
                                                 setData("name", e.target.value)
@@ -72,7 +72,7 @@ export default function EditProfile(props) {
                                             )}
                                         </Form.Group>
 
-                                        <Form.Group controlId="formBasicEmail">
+                                        <Form.Group controlId="formBasicAge">
                                             <Form.Label>Age</Form.Label>
                                             <FormControl type="number" name='age' placeholder={auth.user.age ? auth.user.age : "Not specified"} defaultValue={auth.user.age} onChange={(e) =>
                                                 setData("age", e.target.value)
@@ -83,7 +83,7 @@ export default function EditProfile(props) {
                                             )}
                                         </Form.Group>
 
-                                        <Form.Group controlId="formBasicEmail">
+                                        <Form.Group controlId="formBasicSmoker">
                                             <Form.Label>Smoker</Form.Label>
                                             <FormControl type="text" name='smoker' placeholder={auth.user.smoker ? auth.user.smoker : "Not specified"} defaultValue={auth.user.smoker} onChange={(e) =>
                                                 setData("smoker", e.target.value)
