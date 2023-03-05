@@ -11,7 +11,7 @@ export default function Profile(props) {
 
 
   return (
-    <Container>
+    <Container className="logo-background">
       <div className="row justify-content-center">
         <div className="col-md-10">
           <Card>

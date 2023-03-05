@@ -14,11 +14,10 @@ import Footer from '../components/Footer.jsx';
 
 export default function Initiated() {
     const { flash } = usePage().props; // para poder acceder tienes que entrar en el handleInertiaRequest en midelware y establecerlo
-
     return (
         <>
             <Navigation />
-            {flash.message ? <h3 className="h-100 m-0 bg-success">{flash.message}</h3> : null}
+            {flash.success ? <h3 className="h-100 m-0 bg-success">{flash.success}</h3> : ''}
             <Header />
             <IconsGrid />
             <ShowCase />

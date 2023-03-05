@@ -3,14 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Inertia\Inertia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Session\flash;
+use Inertia\Inertia;
 use App\Http\Requests\UserForm;
 use App\Http\Requests\PasswordForm;
+
 
 class UserController extends Controller
 {
@@ -52,7 +51,7 @@ class UserController extends Controller
         $user->save();
         $user->get();
         
-        $request->session()->flash('message', 'The password was changed successfully!');
-        return Inertia::render('Initiated');
+        $request->session()->flash('success', 'The password was changed successfully!');
+        return Inertia::render('Initiated');//->with('success', 'The password was changed successfully!');
     }
 }
