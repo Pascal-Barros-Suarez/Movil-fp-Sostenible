@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Filas from './misviajes/Filas';
+import Filas from './Filas';
 class Table extends Component {
   constructor(props) {
     super(props);
