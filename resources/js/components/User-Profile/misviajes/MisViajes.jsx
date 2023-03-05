@@ -38,7 +38,7 @@ class Table extends Component {
                 <h1 className="text-center">Mis Viajes</h1>
               </div>
               <div className="card-body">
-                <div class="table-responsive">
+                <div className="table-responsive">
                   <table className='table table-striped table-hover align-middle'>
                     <thead>
                       <tr>

@@ -36,9 +36,9 @@ class UserController extends Controller
         $user->smoker = $validatedData['smoker'];
         $user->save();
         $user->get();
-        // return Inertia::render('Profile/Index', [ 'users' => $user, 'success', 'Los datos se han actualizado correctamente']);
-        //devuelve el perfil del usuario 
-        //return Inertia::render('profile')->with('mensaje', 'Los datos se han actualizado correctamente');
+
+        //$request->session()->flash('success', 'The User was updated successfully!');
+        
     }
     function editPassword(PasswordForm $request, User $user)
     {

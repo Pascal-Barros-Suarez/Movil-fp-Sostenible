@@ -25,13 +25,13 @@ export default function UserProfile() {
         component = <EditProfile change={change} />;
     } else if (editingPass == true) {
         component = <EditPassword/>;
-        //changePassword();
     }
 
 
     return (
         <>
             <Navigation />
+            {flash.success ? <h3 className="h-100 m-0 bg-success">{flash.success}</h3> : ''}
             {component}
             <Footer />
         </>
