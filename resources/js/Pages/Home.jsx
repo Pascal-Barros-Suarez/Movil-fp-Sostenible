@@ -11,7 +11,6 @@ export default function Initiated() {
     return (
         <>
             <Navigation />
-            {/* <Dashboard /> */}
             <MisViajes />
             <Footer />
         </>

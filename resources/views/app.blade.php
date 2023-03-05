@@ -22,7 +22,7 @@
         .card {
             margin-top: 1.5rem;
         }
-
+        
         /*   footer {
             position: fixed;
             height: 100px;
@@ -42,6 +42,7 @@
     @viteReactRefresh
     @vite(['resources/js/app.jsx', "resources/js/Pages/{$page['component']}.jsx"])
     @inertiaHead
+
 </head>
 
 

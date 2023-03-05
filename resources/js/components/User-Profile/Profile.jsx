@@ -11,7 +11,7 @@ export default function Profile(props) {
 
 
   return (
-    <Container>
+    <Container className="logo-background">
       <div className="row justify-content-center">
         <div className="col-md-10">
           <Card>
@@ -47,7 +47,7 @@ export default function Profile(props) {
                   <p>Blocked: {auth.user.blocked ? 'Yes' : 'No'}</p>
                 </div>
                 <div className="d-flex justify-content-end mb-3 m-3 ">
-                  <a type="btn" href="#" className=" me-4 btn-sm btn-primary">Change Password</a>
+                  <a type="btn" href="#" className=" me-4 btn-sm btn-primary" onClick={props.changePassword} >Change Password</a>
                   <a type="btn" href="#" className=" me-4 btn-sm btn-primary" onClick={props.change} >Edit</a>
                 </div>
               </Row>

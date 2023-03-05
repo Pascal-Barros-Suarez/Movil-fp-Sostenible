@@ -2,6 +2,7 @@ import React from "react";
 //import './Example';
 
 //componentes
+import { usePage } from "@inertiajs/react";
 import Navigation from '../components/Navigation';
 import Header from '../components/Header';
 import IconsGrid from '../components/IconsGrid';
@@ -12,9 +13,11 @@ import Footer from '../components/Footer.jsx';
 
 
 export default function Initiated() {
+    const { flash } = usePage().props; // para poder acceder tienes que entrar en el handleInertiaRequest en midelware y establecerlo
     return (
         <>
             <Navigation />
+            {flash.success ? <h3 className="h-100 m-0 bg-success">{flash.success}</h3> : ''}
             <Header />
             <IconsGrid />
             <ShowCase />
