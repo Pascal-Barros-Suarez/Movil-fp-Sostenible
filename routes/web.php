@@ -7,6 +7,8 @@ use Inertia\Inertia;
 ///////////////////////////////////////
 use App\Http\Controllers\TravelsController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SearchController;
+
 
 
 /*
@@ -27,7 +29,8 @@ use App\Http\Controllers\UserController;
 Route::get('/', function () {
     return Inertia::render('Initiated');
 });
-
+//una vez logueados
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
 //errores 404 y 500
 Route::get('/404', function () {
     Route::view('404');
@@ -42,22 +45,20 @@ Route::post('/profile-edit', [UserController::class, 'editProfile'])->name('User
 
 Auth::routes(['verify' => true]); //Activa la verificación en las rutas para laravel/ui
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
-
+Route::get('/search')->name('search');
 
 //////////////////////////////
-Route::get('/travels', [TravelsController::class, 'index'])->name('travels.index')->middleware(['auth', 'verified'])->name('travels');
-
+// T E M P O R A L
+Route::get('/search', [SearchController::class, 'index'])->name('search');
+// Route::get('/search', [TravelsController::class, 'index'])->name('travels.index')->middleware(['auth', 'verified'])->name('travels');
+// T E M P O R A L
 //F O R M //
 Route::get('/newride', [TravelsController::class, 'show'])->middleware(['auth', 'verified'])->name('newride.form');
 Route::post('/newride', [TravelsController::class, 'create'])->middleware(['auth', 'verified'])->name('newride');
-//////////////////////////////
-// detalles viajes
-Route::post('/get/individual/viaje/details',[TravelsController::class, 'getViajesList'])->name('viajes.details');
+
 //////////////////////////////
 // lista de viajes if auth
 Route::get('/get/viajes/list', [TravelsController::class, 'getViajesList'])->name('viajes.lista');
-
-//////////////////////////////
 // detalles viajes
 Route::post('/get/individual/viaje/details',[TravelsController::class, 'getViajesList'])->name('viajes.details');
 ///////////////////////////

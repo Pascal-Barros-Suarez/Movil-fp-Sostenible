@@ -57,7 +57,8 @@ class TravelsController extends Controller
     /////////////  LISTA DE VIAJES DASHBOARD  //////////////
     public function getViajesList()
     {
-        $travels = Travels::orderBy('id', 'DESC')->get();
+        $user_id = auth()->user()->id;
+        $travels = Travels::where('idusers', $user_id)->orderBy('id', 'DESC')->get();
         return response()->json($travels);
     }
     /////////////  DETALLES DE VIAJES DASHBOARD INDIVIDUAL //////////////

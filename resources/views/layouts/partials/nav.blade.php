@@ -12,7 +12,7 @@
 			</li>
 			<li class="nav-item">
 				
-				<a class="nav-link mx-2 bi bi-search" href="/travels"> {{__('Search')}}</a>
+				<a class="nav-link mx-2 bi bi-search" href="/search"> {{__('Search')}}</a>
 			</li>
 			@guest
 			<li class="nav-item">
