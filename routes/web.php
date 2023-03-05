@@ -47,13 +47,23 @@ Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])-
 //////////////////////////////
 Route::get('/travels', [TravelsController::class, 'index'])->name('travels.index')->middleware(['auth', 'verified'])->name('travels');
 //F O R M //
+<<<<<<< HEAD
+Route::get('/newride', [TravelsController::class, 'show'])->name('newride.form');
+Route::post('/newride', [TravelsController::class, 'create'])->name('travels.create');
+
+=======
 Route::get('/newride', [TravelsController::class, 'show'])->name('newride.form')->middleware(['auth', 'verified'])->name('newride.form');
 Route::post('/newride', [TravelsController::class, 'create'])->name('travels.create')->middleware(['auth', 'verified'])->name('newride');
 //////////////////////////////
 // detalles viajes
 Route::post('/get/individual/viaje/details',[TravelsController::class, 'getViajesList'])->name('viajes.details');
+>>>>>>> 29b5f45cbccaf57a5e5264aba9c3cd58b971ecb4
 //////////////////////////////
 // lista de viajes if auth
 Route::get('/get/viajes/list', [TravelsController::class, 'getViajesList'])->name('viajes.lista');
+
+//////////////////////////////
+// detalles viajes
+Route::post('/get/individual/viaje/details',[TravelsController::class, 'getViajesList'])->name('viajes.details');
 ///////////////////////////
 Auth::routes();

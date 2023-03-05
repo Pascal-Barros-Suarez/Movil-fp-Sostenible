@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 /////////////////////////
 use App\Models\Travels;
+use Error;
 use Exception;
 use Illuminate\Support\Facades\Auth;
 /////////////////////////
@@ -62,7 +63,11 @@ class TravelsController extends Controller
     /////////////  DETALLES DE VIAJES DASHBOARD INDIVIDUAL //////////////
     public function getViajesDetails(Request $request)
     {
-        $viajeDatos = Travels::findOrFail($request->get('viajeId'));
-        return response()->json($viajeDatos);
+        try {
+            $viajeDatos = Travels::findOrFail($request->get('viajeId'));
+            return response()->json($viajeDatos);
+        } catch (\Throwable $exception) {
+            return response()->json(['error' => $exception->getMessage()], 500);
+        }
     }
 }

@@ -25,19 +25,19 @@ class TableActionButtons extends Component {
     /////////////////////////////////////////
     render() {
         return (
-            <div class="btn-group" role="group" >
+            <div className="btn-group" role="group" >
                 <button type="button"
-                    class="btn btn-outline-primary btn-sm"
+                    className="btn btn-outline-primary btn-sm"
                     data-bs-toggle="modal"
-                    data-bs-target="#exampleModal"
+                    data-bsd-target="#exampleModal"
                     onClick={() => { this.getViajesDetails(this.props.eachRowId) }}
                 >
                     Ver
                 </button>
                 <ViewModal modalId={this.props.eachRowId} viajeData={this.state} />
 
-                <button type="button" class="btn btn-outline-info btn-sm">Editar</button>
-                <button type="button" class="btn btn-outline-danger btn-sm">Eliminar</button>
+                <button type="button" className="btn btn-outline-info btn-sm">Editar</button>
+                <button type="button" className="btn btn-outline-danger btn-sm">Eliminar</button>
             </div>
         )
     }
