@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-// import ViewModal from './Modals/ViewModal';
 import axios from 'axios';
+
 class TableActionButtons extends Component {
     constructor(props) {
         super(props);
@@ -9,9 +9,8 @@ class TableActionButtons extends Component {
             currentDestination: null,
         }
     }
-    ////////////////////////////////////////////
-    //informacion individual viajes
-    getViajesDetails = (id) => {
+
+    getViajesDetails = (id, setShowModal) => {
         axios.post('/get/individual/viaje/details', {
             viajeId: id
         }).then((response) => {
@@ -22,22 +21,18 @@ class TableActionButtons extends Component {
             console.log(response.data);
         })
     }
-    /////////////////////////////////////////
+
     render() {
         return (
             <div className="btn-group" role="group" >
                 <button type="button"
                     className="btn btn-outline-primary btn-sm"
-                    data-bs-toggle="modal"
-                    data-bsd-target="#exampleModal"
-                    onClick={() => { this.getViajesDetails(this.props.eachRowId) }}
                 >
                     Solicitar
                 </button>
-                {/* <ViewModal modalId={this.props.eachRowId} viajeData={this.state} /> */}
             </div>
         )
     }
-
 }
+
 export default TableActionButtons;
