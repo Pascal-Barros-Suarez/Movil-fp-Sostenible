@@ -42,7 +42,7 @@ class TravelsController extends Controller
         $travel->save();
 
         Session::flash('success', 'The travel was created successfully!');
-        return Inertia::render('Initiated');
+        return Inertia::render('Home');
     }
 
 

@@ -14,6 +14,12 @@ export default function UserProfile() {
     const [editing, setEditing] = useState(false);
     const [editingPass, setEditingPass] = useState(false);
 
+    function dibujaflash() {
+        let message = flash.success ? <h3 className="h-100 m-0 bg-success fa fa-flash">{flash.success}</h3> : '';
+        flash.success = null;
+        return message;
+    }
+
     function change() {
         setEditing(!editing);
     }
@@ -33,7 +39,7 @@ export default function UserProfile() {
     return (
         <>
             <Navigation />
-            {flash.success ? <h3 className="h-100 m-0 bg-success fa fa-flash">{flash.success}</h3> : ''}
+            {dibujaflash()}
             {component}
             <Footer />
         </>
