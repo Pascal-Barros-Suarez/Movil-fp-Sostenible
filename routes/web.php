@@ -45,8 +45,7 @@ Route::post('/profile-edit-password', [UserController::class, 'editPassword'])->
 Auth::routes(['verify' => true]); //Activa la verificación en las rutas para laravel/ui
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
 
-// T E M P O R A L
-// Route::get('/search', [TravelsController::class, 'getViajesListAll'])->name('viajes.lista');
+// Todas los viajes
 Route::get('/search', function () {
     return Inertia::render('Search');
 });
