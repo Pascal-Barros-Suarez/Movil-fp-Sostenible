@@ -11,7 +11,9 @@ class Table extends Component {
     this.state = {
       viajes: [],
       currentPage: 0,
+      
     }
+    
   }
 
   componentDidMount() {
@@ -32,8 +34,8 @@ class Table extends Component {
       currentPage: selected,
     });
   }
-
   render() {
+    
     const { viajes, currentPage } = this.state;
     const itemsPerPage = 10;
     const pagesVisited = currentPage * itemsPerPage;
@@ -65,7 +67,8 @@ class Table extends Component {
                         <th scope="col" width="12%">Precio</th>
                         <th scope="col" width="12%">Asientos</th>
                         <th scope="col" width="12%">Creación</th>
-                        <th scope="col" width="12%"></th>
+                        <th scope="col" width="12%" ></th>
+                        
                       </tr>
                     </MDBTableHead>
                     <MDBTableBody>

@@ -24,7 +24,7 @@ export default function Navigation() {
           }
           {auth.user != null &&
             <>
-              <Nav.Link href="/" className="mx-2 bi bi-car-front"> Publish a ride</Nav.Link>
+              <Nav.Link href="/newride" className="mx-2 bi bi-car-front"> Publish a ride</Nav.Link>
               <NavDropdown
                 id="nav-dropdown"
                 title={auth.user.name}
