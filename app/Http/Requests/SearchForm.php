@@ -14,8 +14,9 @@ class SearchForm extends FormRequest
     public function rules()
     {
         return [
-            'origin' => 'required|string|max:255',
-            'destination' => 'required|string|max:255',
+            'origin' => 'nullable|string|max:255',
+            'destination' => 'nullable|string|max:255',
+            'date' => ['nullable', 'date'],
         ];
     }
 }

@@ -76,10 +76,12 @@ class TravelsController extends Controller
         $validatedData = $request->validated();
         $origin = $validatedData['origin'];
         $destination = $validatedData['destination'];
+        $date = $validatedData['date'];
 
 
-        $travels = Travels::where('origin', 'LIKE', $origin)
-            ->where('destination', 'LIKE', $destination)->latest()->get()->all();
+        $travels = Travels::where('origin', $origin)
+            ->orWhere('destination', $destination)
+            ->orWhere('date', $date)->latest()->get()->all();
 
         //dd($travels);
         //return $travels->paginate(3);

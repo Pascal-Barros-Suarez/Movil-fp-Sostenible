@@ -10,8 +10,8 @@ export default function Navigation() {
   return (
 
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Navbar.Brand href="/">MoviFP Sostenible</Navbar.Brand>
-      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Brand className='ms-4' href="/">MoviFP Sostenible</Navbar.Brand>
+      <Navbar.Toggle  className='me-4' aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="navbar-dark-example" >
         <Nav className="ms-auto">
           <Nav.Link href="/" className="mx-2 bi bi-house"> Home</Nav.Link>
@@ -30,7 +30,7 @@ export default function Navigation() {
                 title={auth.user.name}
                 menuVariant="dark"
                 align="end"
-                className="mx-2"
+                className="mx-2 me-4"
               >
                 <NavDropdown.Item href="/dashboard"><i className='bi bi-car-front pe-3'></i>My rides</NavDropdown.Item>
                 <NavDropdown.Item href="#"><i className='bi bi-chat pe-3'></i>Messages</NavDropdown.Item>
