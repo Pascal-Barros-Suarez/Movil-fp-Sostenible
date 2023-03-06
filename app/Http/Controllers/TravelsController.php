@@ -50,10 +50,9 @@ class TravelsController extends Controller
     }
 
 
+    /////////////  LISTA DE VIAJES  //////////////
     public function getViajesListAll()
     {
-        // $travels = Travels::orderBy('id', 'DESC')->get();
-        // return response()->json($travels);
         $travels = Travels::orderBy('id', 'DESC')->get();
         return response()->json($travels);
     }
