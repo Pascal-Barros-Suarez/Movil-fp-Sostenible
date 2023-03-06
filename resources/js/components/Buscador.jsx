@@ -33,7 +33,7 @@ export default function Buscador() {
                         <Form.Label hidden> <strong>Origin</strong></Form.Label>
                         <Form.Control type="text" name='origin' placeholder="Origen" onChange={(e) =>
                             setData("origin", e.target.value)
-                        } /> {errors.password && (
+                        } /> {errors.origin && (
                             <div className="alert alert-danger">
                                 {errors.origin}
                             </div>
@@ -43,12 +43,13 @@ export default function Buscador() {
                         <Form.Label hidden><strong>Destination</strong></Form.Label>
                         <Form.Control type="text" name='destination' placeholder="Destino" onChange={(e) =>
                             setData("destination", e.target.value)
-                        } /> {errors.password && (
+                        } /> {errors.destination && (
                             <div className="alert alert-danger">
                                 {errors.destination}
                             </div>
                         )}
                     </Form.Group>
+                    
                     <Button variant="primary" type="submit" className="col-sm-2 col-12 ps-2 mt-1">
                         Buscar
                     </Button>

@@ -78,9 +78,11 @@ class TravelsController extends Controller
         $destination = $validatedData['destination'];
 
 
-        $query = Travels::where('origin', 'LIKE', '%' . $origin . '%')
-            ->where('destination', 'LIKE', '%' . $destination . '%')->get();
-        return $query->paginate(3);
-    }
+        $travels = Travels::where('origin', 'LIKE', $origin)
+            ->where('destination', 'LIKE', $destination)->latest()->get()->all();
 
+        //dd($travels);
+        //return $travels->paginate(3);
+        return Inertia::render('Search', ['travels' => $travels]);
+    }
 }

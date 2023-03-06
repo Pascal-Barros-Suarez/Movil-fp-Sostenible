@@ -1,6 +1,8 @@
 
 import React from "react";
-//import './Example';
+/* import { usePage } from "@inertiajs/react";
+let travels = usePage().props; */
+
 
 //componentes
 import Navigation from '../components/Navigation';
@@ -10,7 +12,7 @@ import Buscador from "../components/Buscador";
 
 export default function Initiated() {
 
-  
+
   return (
     <>
       <Navigation />
@@ -20,3 +22,7 @@ export default function Initiated() {
     </>
   )
 }
+
+/*    import { usePage } from "@inertiajs/react";
+    const prop = usePage().props;
+    console.log(usePage().props);*/
