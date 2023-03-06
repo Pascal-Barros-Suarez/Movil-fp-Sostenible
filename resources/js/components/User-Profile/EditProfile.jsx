@@ -34,7 +34,7 @@ export default function EditProfile(props) {
             <div className="row justify-content-center">
                 <div className="col-md-10">
                     <Card>
-                        <div className="card-header">Editing {auth.user.name} Profile:</div>
+                        <div className="card-header"><i className="bi bi-tools"> Editing {auth.user.name} Profile:</i></div>
                         <div className="card-body">
                             <Row>
                                 <div className="col-sm-3 col-12 ps-2">
@@ -46,7 +46,7 @@ export default function EditProfile(props) {
                                 <div className="col-sm-8 col-12 ps-2">
                                     <Form onSubmit={handleSubmit}>
 
-                                        <Form.Group controlId="formBasicName">
+                                        <Form.Group className='mt-1' controlId="formBasicName">
                                             <Form.Label>Name</Form.Label>
                                             <FormControl type="text" name='name' placeholder={auth.user.name} defaultValue={auth.user.name} onChange={(e) =>
                                                 setData("name", e.target.value)
@@ -57,7 +57,7 @@ export default function EditProfile(props) {
                                             )}
                                         </Form.Group>
 
-                                        <Form.Group controlId="formBasicEmail">
+                                        <Form.Group className='mt-1' controlId="formBasicEmail">
                                             <Form.Label>Email address</Form.Label>
                                             <FormControl type="email" name='email' placeholder={auth.user.email} defaultValue={auth.user.email} onChange={(e) =>
                                                 setData("email", e.target.value)
@@ -72,7 +72,7 @@ export default function EditProfile(props) {
                                             )}
                                         </Form.Group>
 
-                                        <Form.Group controlId="formBasicAge">
+                                        <Form.Group className='mt-1' controlId="formBasicAge">
                                             <Form.Label>Age</Form.Label>
                                             <FormControl type="number" name='age' placeholder={auth.user.age ? auth.user.age : "Not specified"} defaultValue={auth.user.age} onChange={(e) =>
                                                 setData("age", e.target.value)
@@ -83,7 +83,7 @@ export default function EditProfile(props) {
                                             )}
                                         </Form.Group>
 
-                                        <Form.Group controlId="formBasicSmoker">
+                                        <Form.Group className='mt-1' controlId="formBasicSmoker">
                                             <Form.Label>Smoker</Form.Label>
                                             <FormControl type="text" name='smoker' placeholder={auth.user.smoker ? auth.user.smoker : "Not specified"} defaultValue={auth.user.smoker} onChange={(e) =>
                                                 setData("smoker", e.target.value)

@@ -9,7 +9,7 @@ class TableActionButtons extends Component {
             currentDestination: null,
         }
     }
-    ////////////////////////////////////////////
+
     //informacion individual viajes
     getViajesDetails = (id) => {
         axios.post('/get/individual/viaje/details', {
@@ -22,7 +22,7 @@ class TableActionButtons extends Component {
             console.log(response.data);
         })
     }
-    /////////////////////////////////////////
+
     render() {
         return (
             <div className="btn-group" role="group" >
@@ -32,12 +32,11 @@ class TableActionButtons extends Component {
                     data-bsd-target="#exampleModal"
                     onClick={() => { this.getViajesDetails(this.props.eachRowId) }}
                 >
-                    Ver
+                    <i id='view' className="bi bi-eye" />
                 </button>
                 <ViewModal modalId={this.props.eachRowId} viajeData={this.state} />
-
-                <button type="button" className="btn btn-outline-info btn-sm">Editar</button>
-                <button type="button" className="btn btn-outline-danger btn-sm">Eliminar</button>
+                <button id='edit' type="button" className="btn btn-outline-info btn-sm"><i id='edit' className="bi bi-tools" /></button>
+                <button id='delete' type="button" className="btn btn-outline-danger btn-sm"><i id='delete' className="bi bi-trash3-fill" /></button>
             </div>
         )
     }

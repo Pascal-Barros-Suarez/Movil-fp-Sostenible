@@ -1,8 +1,7 @@
 import React from "react";
-//import './Example';
+import { usePage } from "@inertiajs/react";
 
 //componentes
-import { usePage } from "@inertiajs/react";
 import Navigation from '../components/Navigation';
 import Header from '../components/Header';
 import IconsGrid from '../components/IconsGrid';
@@ -14,10 +13,15 @@ import Footer from '../components/Footer.jsx';
 
 export default function Initiated() {
     const { flash } = usePage().props; // para poder acceder tienes que entrar en el handleInertiaRequest en midelware y establecerlo
+    function dibujaflash() {
+        let message = flash.success ? <h3 className="h-100 m-0 bg-success fa fa-flash">{flash.success}</h3> : '';
+        flash.success = null;
+        return message;
+    }
     return (
         <>
             <Navigation />
-            {flash.success ? <h3 className="h-100 m-0 bg-success fa fa-flash">{flash.success}</h3> : ''}
+            {dibujaflash()}
             <Header />
             <IconsGrid />
             <ShowCase />
@@ -27,3 +31,4 @@ export default function Initiated() {
         </>
     )
 }
+

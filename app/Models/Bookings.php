@@ -10,9 +10,8 @@ class Bookings extends Model
     use HasFactory;
 
     protected $fillable = [
-        
+
         'user1_id',
         'travel_id'
     ];
-    
 }

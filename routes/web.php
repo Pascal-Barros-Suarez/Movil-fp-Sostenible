@@ -37,6 +37,10 @@ Route::get('/500', function () {
     Route::view('500');
 });
 
+
+Auth::routes(['verify' => true]); //Activa la verificación en las rutas para laravel/ui
+Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
+
 // USER //
 Route::get('/profile', [UserController::class, 'show'])->middleware(['auth', 'verified'])->name('User.show->Profile');
 Route::post('/profile-edit', [UserController::class, 'editProfile'])->middleware(['auth', 'verified'])->name('User.edit->Profile');
@@ -60,8 +64,10 @@ Route::post('/newride', [TravelsController::class, 'create'])->middleware(['auth
 //////////////////////////////
 
 // lista de viajes if auth
-Route::get('/get/viajes/list', [TravelsController::class, 'getViajesList'])->name('viajes.lista');
+Route::get('/get/viajes/list', [TravelsController::class, 'getViajesList'])->middleware(['auth', 'verified'])->name('viajes.lista');
+
 // detalles viajes
 Route::post('/get/individual/viaje/details', [TravelsController::class, 'getViajesList'])->name('viajes.details');
+
 ///////////////////////////
 Auth::routes();

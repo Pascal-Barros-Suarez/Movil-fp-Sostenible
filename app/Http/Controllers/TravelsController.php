@@ -1,14 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-/////////////////////////
+
 use App\Models\Travels;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use App\Http\Requests\RideForm;
+use Illuminate\Support\Facades\Session;
 use Error;
 use Exception;
-use Illuminate\Support\Facades\Auth;
-/////////////////////////
-use Illuminate\Http\Request;
 
 class TravelsController extends Controller
 {
@@ -23,37 +24,28 @@ class TravelsController extends Controller
 
     public function show()
     {
-        return view('travelsForm.index');
+        return Inertia::render('AddRide');
     }
 
-    public function create(Request $request)
+    public function create(RideForm $request, Travels $travel)
     {
+        $validatedData = $request->validated();
+
         $travel = new Travels();
-        $travel->origin = $request->input('origin');
-        $travel->destination = $request->input('destination');
-        $travel->date = $request->input('date');
-        $travel->hour = $request->input('hour');
-        $travel->price = $request->input('price');
-        $travel->seats = $request->input('seats');
+        $travel->origin = $validatedData['origin'];
+        $travel->destination = $validatedData['destination'];
+        $travel->date = $validatedData['date'];
+        $travel->hour = $validatedData['hour'];
+        $travel->price = $validatedData['price'];
+        $travel->seats = $validatedData['seats'];
         $travel->idusers = Auth::user()->id; // set user_id to the id of the currently authenticated user
         $travel->save();
 
-        return redirect()->route('travels.index');
-
-        //lo lleva al formulario
-        // return view('travelsForm.index');
+        Session::flash('success', 'The travel was created successfully!');
+        return Inertia::render('Home');
     }
 
-    public function store(Request $request)
-    {
-        // $travel = new Travels;
-        // $travel->destination = $request->destination;
-        // $travel->departure_date = $request->departure_date;
-        // $travel->seats = $request->seats;
-        // $travel->save();
 
-        // return redirect()->route('travels.index');
-    }
     /////////////  LISTA DE VIAJES  //////////////
     public function getViajesListAll()
     {
@@ -79,3 +71,5 @@ class TravelsController extends Controller
     }
 
 }
+
+// Session::flash('success', 'The password was changed successfully!');
