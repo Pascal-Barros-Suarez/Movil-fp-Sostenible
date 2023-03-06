@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Filas from './viajes/Filas';
 import ReactPaginate from 'react-paginate';
+import { Container, Card } from "react-bootstrap";
 import { MDBTable, MDBTableBody, MDBTableHead } from 'mdb-react-ui-kit';
 
 class Table extends Component {
@@ -45,10 +46,10 @@ class Table extends Component {
     const pageCount = Math.ceil(viajes.length / itemsPerPage);
 
     return (
-      <div className="container">
+      <Container>
         <div className="row justify-content-center">
           <div className="col-md-10">
-            <div className="card">
+            <Card className=" mb-4">
               <div className="card-header">
                 <h1 className="text-center">Viajes disponibles</h1>
               </div>
@@ -89,10 +90,10 @@ class Table extends Component {
                   />
                 </div>
               </div>
-            </div>
+            </Card>
           </div>
         </div>
-      </div>
+      </Container>
     );
   };
 }

@@ -33,7 +33,7 @@ export default function EditProfile(props) {
         <Container>
             <div className="row justify-content-center">
                 <div className="col-md-10">
-                    <Card>
+                    <Card className=" mb-4">
                         <div className="card-header"><i className="bi bi-tools"> Editing {auth.user.name} Profile:</i></div>
                         <div className="card-body">
                             <Row>

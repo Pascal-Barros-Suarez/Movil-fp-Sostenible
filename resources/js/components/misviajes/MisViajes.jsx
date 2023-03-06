@@ -53,7 +53,7 @@ class Table extends Component {
       <Container>
         <div className="row justify-content-center">
           <div className="col-md-11">
-            <Card>
+            <Card className=" mb-4">
               <div className="card-header">
                 <h1 className="text-center">Mis Viajes</h1>
               </div>
