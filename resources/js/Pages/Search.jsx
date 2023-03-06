@@ -9,6 +9,8 @@ import Table from "../components/TravelTable";
 import Buscador from "../components/Buscador";
 
 export default function Initiated() {
+
+  
   return (
     <>
       <Navigation />

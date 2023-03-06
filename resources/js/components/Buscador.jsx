@@ -22,6 +22,8 @@ export default function Buscador() {
         );
     }
     //SearchForm
+
+    
     return (
 
         <div className="mt-2 container-fluid">

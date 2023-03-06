@@ -82,4 +82,5 @@ class TravelsController extends Controller
             ->where('destination', 'LIKE', '%' . $destination . '%')->get();
         return $query->paginate(3);
     }
+
 }

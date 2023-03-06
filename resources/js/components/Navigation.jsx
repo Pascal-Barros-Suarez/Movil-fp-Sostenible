@@ -8,48 +8,47 @@ export default function Navigation() {
 
 
   return (
-    <Navbar variant="drk" bg="dark" expand="lg" className="p-3">
-      <Container fluid>a
-        <Navbar.Brand href="/">MoviFP Sostenible</Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbar-dark-example"><span className="navbar-toggler-icon"></span></Navbar.Toggle>
-        <Navbar.Collapse id="navbar-dark-example">
-          <Nav className="ms-auto">
-            <Nav.Link href="/" className="mx-2 bi bi-house"> Home</Nav.Link>
-            <Nav.Link href="/search" className="mx-2 bi bi-search"> Search</Nav.Link>
-            {auth.user == null &&
-              <>
-                <Nav.Link href="/login" className="mx-2 bi bi-door-open"> Log in</Nav.Link>
-                <Nav.Link href="/register" className="mx-2 bi bi-check-circle"> Sign up</Nav.Link>
-              </>
-            }
-            {auth.user != null &&
-              <>
-                <Nav.Link href="/newride" className="mx-2 bi bi-car-front"> Publish a ride</Nav.Link>
-                <NavDropdown
-                  id="nav-dropdown"
-                  title={auth.user.name}
-                  menuVariant="dark"
-                  align="end"
-                  className="mx-2"
-                >
-                  <NavDropdown.Item href="/dashboard"><i className='bi bi-car-front pe-3'></i>My rides</NavDropdown.Item>
-                  <NavDropdown.Item href="#"><i className='bi bi-chat pe-3'></i>Messages</NavDropdown.Item>
-                  <NavDropdown.Item href="#"><i className='bi bi-credit-card pe-3'></i>Payments</NavDropdown.Item>
-                  <NavDropdown.Item href="/profile"><i className='bi bi-person-circle pe-3'></i>Profile</NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item>
-                    <Link href="/logout" method="post" as="NavDropDown.Item">
-                      <i className='bi bi-door-closed pe-3'></i>
-                      Log out
-                    </Link>
-                  </NavDropdown.Item>
-                </NavDropdown>
-              </>
-            }
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar >
+
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Navbar.Brand href="/">MoviFP Sostenible</Navbar.Brand>
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse id="navbar-dark-example" >
+        <Nav className="ms-auto">
+          <Nav.Link href="/" className="mx-2 bi bi-house"> Home</Nav.Link>
+          <Nav.Link href="/search" className="mx-2 bi bi-search"> Search</Nav.Link>
+          {auth.user == null &&
+            <>
+              <Nav.Link href="/login" className="mx-2 bi bi-door-open"> Log in</Nav.Link>
+              <Nav.Link href="/register" className="mx-2 bi bi-check-circle"> Sign up</Nav.Link>
+            </>
+          }
+          {auth.user != null &&
+            <>
+              <Nav.Link href="/" className="mx-2 bi bi-car-front"> Publish a ride</Nav.Link>
+              <NavDropdown
+                id="nav-dropdown"
+                title={auth.user.name}
+                menuVariant="dark"
+                align="end"
+                className="mx-2"
+              >
+                <NavDropdown.Item href="/dashboard"><i className='bi bi-car-front pe-3'></i>My rides</NavDropdown.Item>
+                <NavDropdown.Item href="#"><i className='bi bi-chat pe-3'></i>Messages</NavDropdown.Item>
+                <NavDropdown.Item href="#"><i className='bi bi-credit-card pe-3'></i>Payments</NavDropdown.Item>
+                <NavDropdown.Item href="/profile"><i className='bi bi-person-circle pe-3'></i>Profile</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item>
+                  <Link href="/logout" method="post" as="NavDropDown.Item">
+                    <i className='bi bi-door-closed pe-3'></i>
+                    Log out
+                  </Link>
+                </NavDropdown.Item>
+              </NavDropdown>
+            </>
+          }
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
   )
 }
 
