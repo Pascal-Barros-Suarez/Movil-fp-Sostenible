@@ -1,6 +1,8 @@
 import { Form, Button } from 'react-bootstrap';
 
 export default function Buscador() {
+
+    
     return (
         
         <div className="container">

@@ -50,16 +50,15 @@ Route::get('/search', function () {
     return Inertia::render('Search');
 });
 Route::get('/get/viajes/list/all', [TravelsController::class, 'getViajesListAll'])->middleware(['auth', 'verified']);
+//////////////////////////////
 
 //////////////////////////////
-//////////////////////////////
-//////////////////////////////
-//F O R M //
+//publicar nuevo viaje//
 Route::get('/newride', [TravelsController::class, 'show'])->middleware(['auth', 'verified'])->name('newride.form');
 Route::post('/newride', [TravelsController::class, 'create'])->middleware(['auth', 'verified'])->name('newride');
 //////////////////////////////
 //////////////////////////////
-//////////////////////////////
+
 // lista de viajes if auth
 Route::get('/get/viajes/list', [TravelsController::class, 'getViajesList'])->name('viajes.lista');
 // detalles viajes
