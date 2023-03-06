@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Filas from './Filas';
 import { Container, Card } from "react-bootstrap";
+import ReactPaginate from 'react-paginate';
+import { MDBTable, MDBTableBody, MDBTableHead } from 'mdb-react-ui-kit';
+
 
 class Table extends Component {
   constructor(props) {
@@ -9,6 +12,7 @@ class Table extends Component {
 
     this.state = {
       viajes: [],
+      currentPage: 0,
     }
   }
 
@@ -24,11 +28,27 @@ class Table extends Component {
       self.setState({
         viajes: response.data
       });
-      console.log(response.data);
+    });
+  }
+
+  handlePageClick = (data) => {
+    let selected = data.selected;
+    this.setState({
+      currentPage: selected,
     });
   }
 
   render() {
+    const { viajes, currentPage } = this.state;
+    const itemsPerPage = 10;
+    const pagesVisited = currentPage * itemsPerPage;
+
+    const displayViajes = viajes.slice(pagesVisited, pagesVisited + itemsPerPage).map(function (x, i) {
+      return <Filas key={i} data={x} />
+    });
+
+    const pageCount = Math.ceil(viajes.length / itemsPerPage);
+
     return (
       <Container>
         <div className="row justify-content-center">
@@ -39,8 +59,8 @@ class Table extends Component {
               </div>
               <div className="card-body">
                 <div className="table-responsive">
-                  <table className='table table-striped table-hover align-middle'>
-                    <thead>
+                  <MDBTable hover className='table table-striped table-hover align-middle'>
+                    <MDBTableHead>
                       <tr>
                         <th scope="col-auto" >#</th>
                         <th scope="col-auto" >Origen</th>
@@ -52,14 +72,26 @@ class Table extends Component {
                         <th scope="col-auto" >Creación</th>
                         <th scope="col-auto" >Acciones</th>
                       </tr>
-                    </thead>
-                    <tbody>
-                      {this.state.viajes.map(function (x, i) {
-                        return <Filas key={i} data={x} />
-                      })}
-
-                    </tbody>
-                  </table>
+                    </MDBTableHead>
+                    <MDBTableBody>
+                      {displayViajes}
+                    </MDBTableBody>
+                  </MDBTable>
+                  <ReactPaginate
+                    previousLabel={"previous"}
+                    nextLabel={"next"}
+                    breakLabel={"..."}
+                    pageCount={pageCount}
+                    onPageChange={this.handlePageClick}
+                    containerClassName={"pagination justify-content-center"}
+                    pageClassName={"page-item"}
+                    pageLinkClassName={"page-link"}
+                    previousClassName={"page-item"}
+                    previousLinkClassName={"page-link"}
+                    nextClassName={"page-item"}
+                    nextLinkClassName={"page-link"}
+                    activeClassName={"active"}
+                  />
                 </div>
               </div>
             </Card>

@@ -30,7 +30,7 @@ class TravelsController extends Controller
     public function create(RideForm $request, Travels $travel)
     {
         $validatedData = $request->validated();
-        
+
         $travel = new Travels();
         $travel->origin = $validatedData['origin'];
         $travel->destination = $validatedData['destination'];
@@ -43,10 +43,6 @@ class TravelsController extends Controller
 
         Session::flash('success', 'The travel was created successfully!');
         return Inertia::render('Initiated');
-        // return redirect()->route('travels.index');
-
-        //lo lleva al formulario
-        // return view('travelsForm.index');
     }
 
 

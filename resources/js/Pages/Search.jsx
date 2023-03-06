@@ -12,8 +12,8 @@ export default function Initiated() {
   return (
     <>
       <Navigation />
-      <Buscador/>
-      <Table/>
+      <Buscador />
+      <Table />
       <Footer />
     </>
   )

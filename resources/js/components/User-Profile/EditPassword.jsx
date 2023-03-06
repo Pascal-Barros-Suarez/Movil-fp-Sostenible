@@ -14,16 +14,16 @@ export default function EditPassword(props) {
 
     function handleSubmit(e) {
         e.preventDefault();
-            post(
-                "profile-edit-password",
-                {
-                    onSuccess: () => {
-                        //changePassword();
-                    },
-                    onError: () => { console.log('errores estos', errors); },
+        post(
+            "profile-edit-password",
+            {
+                onSuccess: () => {
+                    //changePassword();
                 },
-                data
-            );
+                onError: () => { console.log('errores estos', errors); },
+            },
+            data
+        );
     }
 
 
@@ -46,13 +46,13 @@ export default function EditPassword(props) {
                                         <Form.Group controlId="formBasicUsername" hidden>
                                             <Form.Label>Username</Form.Label>
                                             <FormControl type="text" name='username' autoComplete="username"
-                                                placeholder={auth.user.name} value={auth.user.name} readOnly/>
+                                                placeholder={auth.user.name} value={auth.user.name} readOnly />
                                         </Form.Group>
 
                                         <Form.Group controlId="formBasicEmail" hidden>
                                             <Form.Label>Email address</Form.Label>
                                             <FormControl type="email" name='email' autoComplete="email"
-                                                placeholder={auth.user.email} value={auth.user.email} readOnly/>
+                                                placeholder={auth.user.email} value={auth.user.email} readOnly />
                                         </Form.Group>
 
                                         <Form.Group controlId="formBasicPassword">

@@ -39,7 +39,6 @@ class UserController extends Controller
         $user->get();
 
         Session::flash('success', 'The User was updated successfully!');
-
     }
     function editPassword(PasswordForm $request, User $user)
     {

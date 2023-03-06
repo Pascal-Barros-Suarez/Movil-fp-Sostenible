@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Filas from './Filas';
+import Filas from './viajes/Filas';
 import ReactPaginate from 'react-paginate';
 import { MDBTable, MDBTableBody, MDBTableHead } from 'mdb-react-ui-kit';
 
@@ -53,39 +53,41 @@ class Table extends Component {
                 <h1 className="text-center">Viajes disponibles</h1>
               </div>
               <div className="card-body">
-                <MDBTable hover>
-                  <MDBTableHead>
-                    <tr>
-                      <th scope="col" width="12%">#</th>
-                      <th scope="col" width="12%">Origen</th>
-                      <th scope="col" width="12%">Destino</th>
-                      <th scope="col" width="12%">Fecha</th>
-                      <th scope="col" width="12%">Hora</th>
-                      <th scope="col" width="12%">Precio</th>
-                      <th scope="col" width="12%">Asientos</th>
-                      <th scope="col" width="12%">Creación</th>
-                      <th scope="col" width="12%"></th>
-                    </tr>
-                  </MDBTableHead>
-                  <MDBTableBody>
-                    {displayViajes}
-                  </MDBTableBody>
-                </MDBTable>
-                <ReactPaginate
-                  previousLabel={"previous"}
-                  nextLabel={"next"}
-                  breakLabel={"..."}
-                  pageCount={pageCount}
-                  onPageChange={this.handlePageClick}
-                  containerClassName={"pagination justify-content-center"}
-                  pageClassName={"page-item"}
-                  pageLinkClassName={"page-link"}
-                  previousClassName={"page-item"}
-                  previousLinkClassName={"page-link"}
-                  nextClassName={"page-item"}
-                  nextLinkClassName={"page-link"}
-                  activeClassName={"active"}
-                />
+                <div className="table-responsive">
+                  <MDBTable hover>
+                    <MDBTableHead>
+                      <tr>
+                        <th scope="col" width="12%">#</th>
+                        <th scope="col" width="12%">Origen</th>
+                        <th scope="col" width="12%">Destino</th>
+                        <th scope="col" width="12%">Fecha</th>
+                        <th scope="col" width="12%">Hora</th>
+                        <th scope="col" width="12%">Precio</th>
+                        <th scope="col" width="12%">Asientos</th>
+                        <th scope="col" width="12%">Creación</th>
+                        <th scope="col" width="12%"></th>
+                      </tr>
+                    </MDBTableHead>
+                    <MDBTableBody>
+                      {displayViajes}
+                    </MDBTableBody>
+                  </MDBTable>
+                  <ReactPaginate
+                    previousLabel={"previous"}
+                    nextLabel={"next"}
+                    breakLabel={"..."}
+                    pageCount={pageCount}
+                    onPageChange={this.handlePageClick}
+                    containerClassName={"pagination justify-content-center"}
+                    pageClassName={"page-item"}
+                    pageLinkClassName={"page-link"}
+                    previousClassName={"page-item"}
+                    previousLinkClassName={"page-link"}
+                    nextClassName={"page-item"}
+                    nextLinkClassName={"page-link"}
+                    activeClassName={"active"}
+                  />
+                </div>
               </div>
             </div>
           </div>
