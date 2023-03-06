@@ -6,7 +6,6 @@ import { Container, Card, Row, Form, FormControl, Button } from "react-bootstrap
 
 export default function EditPassword(props) {
     const { auth } = usePage().props; // para poder acceder tienes que entrar en el handleInertiaRequest en midelware y establecerlo
-    //console.log(auth.user);profile-edit
     const { data, setData, post, errors } = useForm({
         password: '',
         password_confirmation: '',
@@ -31,7 +30,7 @@ export default function EditPassword(props) {
         <Container>
             <div className="row justify-content-center">
                 <div className="col-md-10">
-                    <Card>
+                    <Card className=" mb-4">
                         <div className="card-header"><i className="bi bi-tools"> Editing {auth.user.name} Password:</i></div>
                         <div className="card-body">
                             <Row>

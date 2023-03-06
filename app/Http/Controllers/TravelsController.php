@@ -6,8 +6,9 @@ use App\Models\Travels;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use App\Http\Requests\RideForm;
 use Illuminate\Support\Facades\Session;
+use App\Http\Requests\RideForm;
+use App\Http\Requests\SearchForm;
 use Error;
 use Exception;
 
@@ -70,6 +71,18 @@ class TravelsController extends Controller
         }
     }
 
-}
+    public function search(SearchForm $request,)
+    {
+        $validatedData = $request->validated();
+        $origin = $validatedData['origin'];
+        $destination = $validatedData['destination'];
 
-// Session::flash('success', 'The password was changed successfully!');
+
+        $travels = Travels::where('origin', 'LIKE', $origin)
+            ->where('destination', 'LIKE', $destination)->latest()->get()->all();
+
+        //dd($travels);
+        //return $travels->paginate(3);
+        return Inertia::render('Search', ['travels' => $travels]);
+    }
+}

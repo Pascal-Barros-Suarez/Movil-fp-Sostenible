@@ -53,11 +53,11 @@ Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])-
 Route::get('/search', function () {
     return Inertia::render('Search');
 });
-Route::get('/get/viajes/list/all', [TravelsController::class, 'getViajesListAll'])->middleware(['auth', 'verified']);
-//////////////////////////////
+Route::get('/get/viajes/list/all', [TravelsController::class, 'getViajesListAll'])->name('all->viajes');
+Route::post('/search', [TravelsController::class, 'search'])->name('search');
 
-//////////////////////////////
-//publicar nuevo viaje//
+
+//F O R M //
 Route::get('/newride', [TravelsController::class, 'show'])->middleware(['auth', 'verified'])->name('newride.form');
 Route::post('/newride', [TravelsController::class, 'create'])->middleware(['auth', 'verified'])->name('newride');
 //////////////////////////////

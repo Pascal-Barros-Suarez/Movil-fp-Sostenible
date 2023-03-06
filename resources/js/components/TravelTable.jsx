@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import { usePage } from "@inertiajs/react";
 import axios from "axios";
@@ -13,7 +14,9 @@ function Table() {
 
   useEffect(() => {
     getViajesList();
-  }, []);
+  }, prop.travels);
+
+  // console.log(prop.travels);
 
   const getViajesList = () => {
     axios.get("/get/viajes/list/all/").then((response) => {

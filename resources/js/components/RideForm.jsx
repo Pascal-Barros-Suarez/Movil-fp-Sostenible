@@ -35,7 +35,7 @@ export default function RideForm(props) {
         <Container>
             <div className="row justify-content-center">
                 <div className="col-md-10">
-                    <Card>
+                    <Card className=" mb-4">
                         <div className="card-header"><i className=" bi bi-signpost-split"> Create Ride:</i></div>
                         <div className="card-body">
                             <div className=" col-12 ps-2">
