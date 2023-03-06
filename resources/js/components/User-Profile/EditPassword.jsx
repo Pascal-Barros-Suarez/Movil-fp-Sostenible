@@ -27,6 +27,8 @@ export default function EditPassword(props) {
 
 
     return (
+        <div className="container-fluid logoBackground">
+
         <Container>
             <div className="row justify-content-center">
                 <div className="col-md-10">
@@ -92,5 +94,7 @@ export default function EditPassword(props) {
                     </Card>
                 </div>
             </div>
-        </Container>);
+        </Container>
+        </div>
+        );
 }
