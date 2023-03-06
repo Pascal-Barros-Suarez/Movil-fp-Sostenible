@@ -32,7 +32,7 @@ export default function EditPassword(props) {
             <div className="row justify-content-center">
                 <div className="col-md-10">
                     <Card>
-                        <div className="card-header">Editing {auth.user.name} Profile:</div>
+                        <div className="card-header"><i className="bi bi-tools"> Editing {auth.user.name} Password:</i></div>
                         <div className="card-body">
                             <Row>
                                 <div className="col-sm-3 col-12 ps-2">
@@ -67,7 +67,7 @@ export default function EditPassword(props) {
                                                 )}
                                         </Form.Group>
 
-                                        <Form.Group controlId="formBasicPasswordConfirm">
+                                        <Form.Group className='mt-3' controlId="formBasicPasswordConfirm">
                                             <Form.Label>Confirm Password:</Form.Label>
                                             <FormControl type="password" name='Password Confirm' autoComplete="new-password"
                                                 placeholder={'Confirm the Password'} onChange={(e) =>

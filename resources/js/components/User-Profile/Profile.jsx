@@ -15,7 +15,7 @@ export default function Profile(props) {
       <div className="row justify-content-center">
         <div className="col-md-10">
           <Card>
-            <div className="card-header">{auth.user.name} Profile:</div>
+            <div className="card-header"><i className="bi bi-tools"> {auth.user.name} Profile</i>:</div>
             <div className="card-body">
               <Row>
                 <div className="col-sm-3 col-12 ps-2">

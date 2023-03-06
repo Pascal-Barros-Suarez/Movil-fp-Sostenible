@@ -18,4 +18,4 @@ class UserForm  extends FormRequest
             'smoker' => 'string|max:100',
         ];
     }
-} 
+}

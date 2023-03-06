@@ -11,7 +11,7 @@ export default function Navigation() {
     <Navbar variant="drk" bg="dark" expand="lg" className="p-3">
       <Container fluid>a
         <Navbar.Brand href="/">MoviFP Sostenible</Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbar-dark-example" />
+        <Navbar.Toggle aria-controls="navbar-dark-example"><span className="navbar-toggler-icon"></span></Navbar.Toggle>
         <Navbar.Collapse id="navbar-dark-example">
           <Nav className="ms-auto">
             <Nav.Link href="/" className="mx-2 bi bi-house"> Home</Nav.Link>
@@ -24,7 +24,7 @@ export default function Navigation() {
             }
             {auth.user != null &&
               <>
-                <Nav.Link href="/" className="mx-2 bi bi-car-front"> Publish a ride</Nav.Link>
+                <Nav.Link href="/newride" className="mx-2 bi bi-car-front"> Publish a ride</Nav.Link>
                 <NavDropdown
                   id="nav-dropdown"
                   title={auth.user.name}
