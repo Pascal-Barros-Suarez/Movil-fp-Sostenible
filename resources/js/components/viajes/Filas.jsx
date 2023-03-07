@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import TableActionButtons from './TableActionButtons';
-import ModalViajes from '../ModalViajes';
+import ModalViajes from './ModalViajes';
 
 
 
@@ -14,6 +14,14 @@ function Filas(props) {
 
     return `${anio}/${mes}/${dia}`;
   }
+  //se la paso al modal
+  const data = {
+    id: props.data.id,
+    origen: props.data.origin,
+    destino: props.data.destination,
+    fecha: props.data.date,
+    hora: props.data.hour,
+  };
 
   return (
     <tr>
@@ -26,7 +34,7 @@ function Filas(props) {
       <td>{props.data.seats}</td>
       <td>{createDate(props.data.created_at)}</td>
       <td>
-        <ModalViajes eachRowId={props.data.id} />
+        <ModalViajes data={data} />
       </td>
     </tr>
   )

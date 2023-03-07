@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { usePage } from "@inertiajs/react";
 import axios from "axios";
-import Filas from "./viajes/Filas";
+import Filas from "./Filas";
 import ReactPaginate from "react-paginate";
 import { Container, Card } from "react-bootstrap";
 import { MDBTable, MDBTableBody, MDBTableHead } from "mdb-react-ui-kit";
