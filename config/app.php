@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Facade;
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -182,6 +181,10 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        /*
+        * Package Service Providers...
+        */
+        \Chatify\ChatifyServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -211,6 +214,11 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+        /*
+        * Class Aliases
+        */
+        'Chatify' => Chatify\Facades\ChatifyMessenger::class,
+
     ])->toArray(),
 
 ];
