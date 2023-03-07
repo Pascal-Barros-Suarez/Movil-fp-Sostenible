@@ -1,5 +1,5 @@
-// import React, { Component } from 'react';
-// import axios from 'axios';
+import React, { Component } from 'react';
+import axios from 'axios';
 import ModalViajes from './ModalViajes';
 
 class TableActionButtons extends Component {
@@ -32,4 +32,4 @@ class TableActionButtons extends Component {
     }
 }
 
-// export default TableActionButtons;
+export default TableActionButtons;
