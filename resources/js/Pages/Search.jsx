@@ -7,7 +7,7 @@ let travels = usePage().props; */
 //componentes
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer.jsx';
-import Table from "../components/TravelTable";
+import Table from "../components/viajes/TravelTable";
 import Buscador from "../components/Buscador";
 
 export default function Initiated() {
