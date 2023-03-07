@@ -11,18 +11,18 @@ export default function Navigation() {
 
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Navbar.Brand className='ms-4' href="/">MoviFP Sostenible</Navbar.Brand>
-      <Navbar.Toggle  className='me-4' aria-controls="responsive-navbar-nav" />
+      <Navbar.Toggle className='me-4' aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="navbar-dark-example" >
         <Nav className="ms-auto">
           <Nav.Link href="/" className="mx-2 bi bi-house"> Home</Nav.Link>
           <Nav.Link href="/search" className="mx-2 bi bi-search"> Search</Nav.Link>
-          {auth.user == null &&
+          {auth.user == null && (
             <>
               <Nav.Link href="/login" className="mx-2 bi bi-door-open"> Log in</Nav.Link>
               <Nav.Link href="/register" className="mx-2 bi bi-check-circle"> Sign up</Nav.Link>
             </>
-          }
-          {auth.user != null &&
+          )}
+          {auth.user != null && (
             <>
               <Nav.Link href="/newride" className="mx-2 bi bi-car-front"> Publish a ride</Nav.Link>
               <NavDropdown
@@ -45,7 +45,7 @@ export default function Navigation() {
                 </NavDropdown.Item>
               </NavDropdown>
             </>
-          }
+          )}
         </Nav>
       </Navbar.Collapse>
     </Navbar>
