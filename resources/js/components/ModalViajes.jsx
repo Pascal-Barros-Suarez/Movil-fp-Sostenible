@@ -2,28 +2,38 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
-function ModalViajes({showModal, setShowModal}) {
+function ModalViajes() {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
-    <div>
-      <Modal show={showModal} onHide={() => setShowModal(false)}>
+    <>
+      <Button variant="primary" onClick={handleShow}>
+        Solicitar
+      </Button>
+
+      <Modal
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+      >
         <Modal.Header closeButton>
-          <Modal.Title>Confirmar viaje</Modal.Title>
+          <Modal.Title>Desea registrarse en este trayecto?</Modal.Title>
         </Modal.Header>
-
         <Modal.Body>
-          <p>¿Está seguro de que desea confirmar el viaje?.</p>
+          Recuerde que una vez que acepte, ya no podrás cancelar el viaje.
         </Modal.Body>
-
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowModal(false)}>
-            Close
+          <Button variant="danger" onClick={handleClose}>
+            Cancelar
           </Button>
-          <Button variant="primary" onClick={() => setShowModal(false)}>
-            Save Changes
-          </Button>
+          <Button variant="primary">Confirmar</Button>
         </Modal.Footer>
       </Modal>
-    </div>
+    </>
   );
 }
 

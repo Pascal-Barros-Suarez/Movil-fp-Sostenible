@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import TableActionButtons from './TableActionButtons';
+// import TableActionButtons from './TableActionButtons';
+import ModalViajes from '../ModalViajes';
 
 
 
@@ -25,7 +26,7 @@ function Filas(props) {
       <td>{props.data.seats}</td>
       <td>{createDate(props.data.created_at)}</td>
       <td>
-        <TableActionButtons eachRowId={props.data.id} />
+        <ModalViajes eachRowId={props.data.id} />
       </td>
     </tr>
   )
