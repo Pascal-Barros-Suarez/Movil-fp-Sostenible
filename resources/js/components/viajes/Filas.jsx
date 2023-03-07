@@ -10,6 +10,14 @@ function Filas(props) {
 
     return `${anio}/${mes}/${dia}`;
   }
+  //se la paso al modal
+  const data = {
+    id: props.data.id,
+    origen: props.data.origin,
+    destino: props.data.destination,
+    fecha: props.data.date,
+    hora: props.data.hour,
+  };
 
   return (
     <tr>

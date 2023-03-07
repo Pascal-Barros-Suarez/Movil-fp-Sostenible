@@ -13,9 +13,9 @@ class UserForm  extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'age' => 'integer',
+            'age' => 'nullable|integer',
             'email' => 'required|email|max:255|unique:users,email,' . $this->user()->id,
-            'smoker' => 'string|max:100',
+            'smoker' => 'nullable|string|max:100',
         ];
     }
 }
