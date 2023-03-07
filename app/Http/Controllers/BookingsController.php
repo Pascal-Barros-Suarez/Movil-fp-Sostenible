@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Bookings;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Inertia\Inertia;
 
 class BookingsController extends Controller
@@ -28,6 +29,8 @@ class BookingsController extends Controller
     $booking->idtravels = $idtravels;
     $booking->idusers = $idusers;
     $booking->save();
+
+    Session::flash('success', 'You !');
 
     // Return a response indicating success
     return Inertia::render('Home');

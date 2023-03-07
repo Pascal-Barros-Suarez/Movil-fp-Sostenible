@@ -2,20 +2,39 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import axios from 'axios';
+import { useForm, usePage } from "@inertiajs/react";
 
 function ModalViajes(props) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const { data, post, errors } = useForm({
+    idtravels: props.data.id
+  });
+
+
   ///////////// IF CONFIRM /////////////
-  const handleConfirmar = () => {
+  const handleConfirmar = (e) => {
     // Insert record in bookingsTable with idtravel and iduser here
-    axios.post('/bookings', {
-      idtravels: props.data.id
-      // idusers: props.data.idusers
-    })
+    e.preventDefault();
+    post(
+      "/bookings",
+      {
+        onSuccess: () => {
+          console.log('reserva');
+        },
+        onError: () => { console.log('errores estos', errors); },
+      },
+      data
+    );
   };
+  /////////////////////////////////
+
+  /* axios.post('/bookings', {
+    idtravels: props.data.id
+    // idusers: props.data.idusers
+  }) */
   ///////////////////////////////////
 
   return (
