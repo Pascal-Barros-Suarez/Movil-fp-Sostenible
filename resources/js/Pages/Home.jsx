@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 //componentes
 // import Dashboard from '../components/Dashboard';
@@ -9,13 +9,23 @@ import Footer from '../components/Footer.jsx';
 import { dibujaFlash } from '../Helper';
 
 export default function Initiated() {
+    let component;
+    const [change, setChange] = useState(false);
+    function cambiaPasajeroConductor() {
+        setChange(!change);
+    }
+
+    if (change == false) {
+        component = <MisViajes changing={cambiaPasajeroConductor} />;
+    } else if (change == true) {
+        component = <MisViajesPasajero changing={cambiaPasajeroConductor} />;
+    }
 
     return (
         <>
             <Navigation />
             {dibujaFlash()}
-            <MisViajes />
-            <MisViajesPasajero />
+            {component}
             <Footer />
         </>
     )
