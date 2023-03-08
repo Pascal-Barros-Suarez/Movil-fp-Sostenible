@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Filas from './Filas';
-import { Container, Card } from "react-bootstrap";
+import { Container, Card, Button, Col, } from "react-bootstrap";
 import ReactPaginate from 'react-paginate';
 import { MDBTable, MDBTableBody, MDBTableHead } from 'mdb-react-ui-kit';
 
 
-function MisViajesPasajero() {
+function MisViajesPasajero(props) {
   const [bookings, setBookings] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
 
@@ -54,6 +54,11 @@ function MisViajesPasajero() {
   const pageCount = Math.ceil(bookings.length / itemsPerPage);
 
   return (
+    <>
+    <div className='mt-4 d-flex justify-content-center'>
+      <Button type="btn" aria-label="Conductor" className=" me-1 btn-sm btn-primary" onClick={props.changing} >Conductor</Button>
+      <Button type="btn" aria-label="Pasajero" className="  me-4 btn-sm btn-primary disabled" onClick={props.changing} >Pasajero</Button>
+    </div>
     <Container>
       <div className="row justify-content-center">
         <div className="col-md-11">
@@ -102,6 +107,7 @@ function MisViajesPasajero() {
         </div>
       </div>
     </Container>
+    </>
   );
 }
 
