@@ -13,7 +13,7 @@ function TableActionButtons(props) {
         id: '',
     });
 
-    console.log(data);
+    //console.log(data);
 
     function handleSubmit(e) {
         e.preventDefault();

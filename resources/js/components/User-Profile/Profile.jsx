@@ -12,8 +12,6 @@ export default function Profile(props) {
     id: auth.user.id,
   });
 
-  console.log(data);
-
   function handleSubmit(e) {
     e.preventDefault();
     post(
@@ -76,19 +74,38 @@ export default function Profile(props) {
                     <p>Smoker: {auth.user.smoker ? auth.user.smoker : "Not specified"}</p>
                     <p>Coupon: {auth.user.coupon ? auth.user.coupon : "don't have coupons"}</p>
                   </div>
+                  {screen.width < 565 && <><hr />
+                    <div className="col-sm-4 col-12 ps-3">
+                      {created === lastUpdated ? (
+                        <p>This Profile was created at: {created}</p>
+                      ) : (<>
+                        <p>This Profile was created at: {created}</p>
+                        <p>Last updated at: {lastUpdated}</p>
+                      </>)}
 
-                  <div className="col-sm-4 col-12 ps-3 border-start">
-                    {created === lastUpdated ? (
-                      <p>This Profile was created at: {created}</p>
-                    ) : (<>
-                      <p>This Profile was created at: {created}</p>
-                      <p>Last updated at: {lastUpdated}</p>
-                    </>)}
+                      <p>Email verified: {auth.user.email_verified_at ? 'Yes' : 'No'}</p>
+                      <p>Validated: {auth.user.validated ? 'Yes' : 'No'}</p>
+                      <p>Blocked: {auth.user.blocked ? 'Yes' : 'No'}</p>
+                    </div>
+                  </>
+                  }
 
-                    <p>Email verified: {auth.user.email_verified_at ? 'Yes' : 'No'}</p>
-                    <p>Validated: {auth.user.validated ? 'Yes' : 'No'}</p>
-                    <p>Blocked: {auth.user.blocked ? 'Yes' : 'No'}</p>
-                  </div>
+
+                  {screen.width > 565 &&
+                    <div className="col-sm-4 col-12 ps-3 border-start">
+                      {created === lastUpdated ? (
+                        <p>This Profile was created at: {created}</p>
+                      ) : (<>
+                        <p>This Profile was created at: {created}</p>
+                        <p>Last updated at: {lastUpdated}</p>
+                      </>)}
+
+                      <p>Email verified: {auth.user.email_verified_at ? 'Yes' : 'No'}</p>
+                      <p>Validated: {auth.user.validated ? 'Yes' : 'No'}</p>
+                      <p>Blocked: {auth.user.blocked ? 'Yes' : 'No'}</p>
+                    </div>
+                  }
+
                   <div className="d-flex justify-content-end mb-3 m-3 ">
                     <Button type="btn" aria-label="Delete" data-bs-toggle="modal" data-bs-target="#exampleModal" className=" text-decoration-underline me-4 btn-sm btn-danger">Delete</Button>
                     <Button type="btn" aria-label="Change Password" className=" text-decoration-underline me-4 btn-sm btn-primary" onClick={props.changePassword} >Change Password</Button>
