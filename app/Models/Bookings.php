@@ -7,11 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Bookings extends Model
 {
-    use HasFactory;
+    protected $table = 'bookings';
+    protected $fillable = ['idtravels', 'idusers', 'time', 'price', 'seats'];
 
-    protected $fillable = [
+    public function travel()
+    {
+        return $this->belongsTo('App\Models\Travels', 'idtravels');
+    }
 
-        'user1_id',
-        'travel_id'
-    ];
+    public function user()
+    {
+        return $this->belongsTo('App\Models\Users', 'idusers');
+    }
 }

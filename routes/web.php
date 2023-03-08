@@ -54,6 +54,7 @@ Route::middleware(['auth'])->name('')->group(function () {
     Route::post('/bookings', [BookingsController::class, 'store'])->name('bookings.store');
     Route::get('/bookings/{id}', [BookingsController::class, 'show'])->name('bookings.show');
 });
+Route::get('/travels/{id}', [TravelsController::class, 'getTravelById'])->name('getTravelById');
 
 // F O R M //
 Route::get('/newride', [TravelsController::class, 'show'])->middleware(['auth', 'verified'])->name('newride.form');

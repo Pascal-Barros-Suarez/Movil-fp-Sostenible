@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Filas from './Filas';
-import { Container, Card, Button, Col, } from "react-bootstrap";
+import { Container, Card, Button, Col } from "react-bootstrap";
 import ReactPaginate from 'react-paginate';
 import { MDBTable, MDBTableBody, MDBTableHead } from 'mdb-react-ui-kit';
-
 
 function MisViajesPasajero(props) {
   const [bookings, setBookings] = useState([]);
@@ -14,16 +13,29 @@ function MisViajesPasajero(props) {
   }, []);
 
   const getViajesList = () => {
-    fetch('/api/bookings')
-      .then(response => response.text())
+    fetch('/bookings')
+      .then(response => {
+        console.log(response); // log the response object
+        return response.json();
+      })
       .then(data => {
-        console.log(data); // print the response in the console
-        setBookings(JSON.parse(data)); // parse the response as JSON
+        console.log(data);
+        const bookingsWithDetails = data.bookings.map(function (booking) {
+          return {
+            ...booking,
+            travelData: {
+              origin: booking.origin,
+              destination: booking.destination,
+              date: booking.date,
+            },
+          };
+        });
+        setBookings(bookingsWithDetails);
       })
       .catch(error => {
         console.log('Error fetching bookings data: ', error);
       });
-  }
+  };
 
   const handlePageClick = (data) => {
     let selected = data.selected;
@@ -37,9 +49,9 @@ function MisViajesPasajero(props) {
     return (
       <tr key={index}>
         <td>{booking.id}</td>
-        <td>{booking.origin}</td>
-        <td>{booking.destination}</td>
-        <td>{booking.date}</td>
+        <td>{booking.travelData.origin}</td>
+        <td>{booking.travelData.destination}</td>
+        <td>{booking.travelData.date}</td>
         <td>{booking.time}</td>
         <td>{booking.price}</td>
         <td>{booking.seats}</td>
@@ -55,16 +67,16 @@ function MisViajesPasajero(props) {
 
   return (
     <>
-    <div className='mt-4 d-flex justify-content-center'>
-      <Button type="btn" aria-label="Conductor" className=" me-1 btn-sm btn-primary" onClick={props.changing} >Conductor</Button>
-      <Button type="btn" aria-label="Pasajero" className="  me-4 btn-sm btn-primary disabled" onClick={props.changing} >Pasajero</Button>
-    </div>
-    <Container>
-      <div className="row justify-content-center">
-        <div className="col-md-11">
-          <Card className=" mb-4">
-            <div className="card-header">
-              <h1 className="text-center">Mis Viajes como <small className="text-muted"><u>Pasajero</u> </small></h1>
+      <div className='mt-4 d-flex justify-content-center'>
+        <Button type="btn" aria-label="Conductor" className=" me-1 btn-sm btn-primary" onClick={props.changing} >Conductor</Button>
+        <Button type="btn" aria-label="Pasajero" className="  me-4 btn-sm btn-primary disabled" onClick={props.changing} >Pasajero</Button>
+      </div>
+      <Container>
+        <div className="row justify-content-center">
+          <div className="col-md-11">
+            <Card className=" mb-4">
+              <div className="card-header">
+                <h1 className="text-center">Mis Viajes como <small className="text-muted"><u>Pasajero</u></small></h1>
             </div>
             <div className="card-body">
               <div className="table-responsive">
