@@ -5,6 +5,7 @@ import ReactPaginate from 'react-paginate';
 import { MDBTable, MDBTableBody, MDBTableHead } from 'mdb-react-ui-kit';
 
 function MisViajesPasajero(props) {
+  
   const [bookings, setBookings] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
 
@@ -23,14 +24,14 @@ function MisViajesPasajero(props) {
         const bookingsWithDetails = data.bookings.map(function (booking) {
           return {
             id: booking.id,
-            time: booking.time,
+            hour: booking.hour,
             price: booking.price,
             seats: booking.seats,
             travelData: {
               origin: booking.origin,
               destination: booking.destination,
               date: booking.date,
-              hour: booking.hour,
+              hour: booking.hour, // Use 'hour' property instead of 'time'
             },
           };
         });
@@ -48,7 +49,7 @@ function MisViajesPasajero(props) {
 
   const itemsPerPage = 10;
   const pagesVisited = currentPage * itemsPerPage;
-
+  const pageCount = Math.ceil(bookings.length / itemsPerPage);
   const displayViajes = bookings.slice(pagesVisited, pagesVisited + itemsPerPage).map(function (booking, index) {
     return (
       <tr key={index}>
@@ -56,7 +57,7 @@ function MisViajesPasajero(props) {
         <td>{booking.travelData.origin}</td>
         <td>{booking.travelData.destination}</td>
         <td>{booking.travelData.date}</td>
-        <td>{booking.hour}</td>
+        <td>{booking.travelData.hour}</td>
         <td>
           <a href={'/bookings/' + booking.id}>Ver</a>
         </td>
@@ -64,7 +65,8 @@ function MisViajesPasajero(props) {
     );
   });
 
-  const pageCount = Math.ceil(bookings.length / itemsPerPage);
+  console.log(displayViajes); // log the bookings array being displayed
+
 
   return (
     <>
@@ -96,6 +98,7 @@ function MisViajesPasajero(props) {
                     {displayViajes}
                   </MDBTableBody>
                 </MDBTable>
+                
                 <ReactPaginate
                   previousLabel={"previous"}
                   nextLabel={"next"}
