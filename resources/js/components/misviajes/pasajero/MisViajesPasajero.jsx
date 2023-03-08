@@ -6,12 +6,12 @@ import ReactPaginate from 'react-paginate';
 import { MDBTable, MDBTableBody, MDBTableHead } from 'mdb-react-ui-kit';
 
 
-class Table extends Component {
+class MisViajesPasajero extends Component {
   constructor(props) {
     super(props);
-
+  
     this.state = {
-      viajes: [],
+      bookings: [],
       currentPage: 0,
     }
   }
@@ -23,11 +23,12 @@ class Table extends Component {
 
   //coger lista
   getViajesList = () => {
-    let self = this;
-    axios.get('/get/viajes/list').then(function (response) {
-      self.setState({
-        viajes: response.data
+    axios.get('/api/bookings').then((response) => {
+      this.setState({
+        bookings: response.data
       });
+    }).catch((error) => {
+      console.log(error);
     });
   }
 
@@ -39,15 +40,15 @@ class Table extends Component {
   }
 
   render() {
-    const { viajes, currentPage } = this.state;
+    const { bookings, currentPage } = this.state;
     const itemsPerPage = 10;
     const pagesVisited = currentPage * itemsPerPage;
 
-    const displayViajes = viajes.slice(pagesVisited, pagesVisited + itemsPerPage).map(function (x, i) {
+    const displayViajes = bookings.slice(pagesVisited, pagesVisited + itemsPerPage).map(function (x, i) {
       return <Filas key={i} data={x} />
     });
 
-    const pageCount = Math.ceil(viajes.length / itemsPerPage);
+    const pageCount = Math.ceil(bookings.length / itemsPerPage);
 
     return (
       <Container>
@@ -55,7 +56,7 @@ class Table extends Component {
           <div className="col-md-11">
             <Card className=" mb-4">
               <div className="card-header">
-              <h1 className="text-center">Mis Viajes como <small class="text-muted"><u>Pasajero</u> </small></h1>
+              <h1 className="text-center">Mis Viajes como <small className="text-muted"><u>Pasajero</u> </small></h1>
               </div>
               <div className="card-body">
                 <div className="table-responsive">
@@ -102,4 +103,4 @@ class Table extends Component {
   }
 }
 
-export default Table;
+export default MisViajesPasajero;

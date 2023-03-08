@@ -55,7 +55,7 @@ class Table extends Component {
           <div className="col-md-11">
             <Card className=" mb-4">
               <div className="card-header">
-                <h1 className="text-center">Mis Viajes como <small class="text-muted"><u>Conductor</u> </small></h1>
+                <h1 className="text-center">Mis Viajes como <small className="text-muted"><u>Conductor</u></small></h1>
               </div>
               <div className="card-body">
                 <div className="table-responsive">
