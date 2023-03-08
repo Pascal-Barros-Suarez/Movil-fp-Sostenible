@@ -62,11 +62,11 @@ function Table(props) {
                     <MDBTableHead>
                       <tr>
                         <th scope="col-auto">#</th>
-                        <th scope="col-auto">Origen</th>
-                        <th scope="col-auto">Destino</th>
-                        <th scope="col-auto">Fecha</th>
-                        <th scope="col-auto">Precio</th>
-                        <th scope="col-auto">Acciones</th>
+                        <th scope="col-auto">Origin</th>
+                        <th scope="col-auto">Destination</th>
+                        <th scope="col-auto">Date</th>
+                        <th scope="col-auto">Price</th>
+                        <th scope="col-auto">Actions</th>
                       </tr>
                     </MDBTableHead>
                     <MDBTableBody>{displayViajes}</MDBTableBody>

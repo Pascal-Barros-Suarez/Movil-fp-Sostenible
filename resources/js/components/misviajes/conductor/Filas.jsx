@@ -26,13 +26,13 @@ function Filas(props) {
               <Button variant="btn" data-bs-dismiss="modal" aria-label="Cancel" className="me-4 btn">X</Button>
             </div>
             <div className="modal-body">
-              <p><strong>origin: </strong>{props.data.origin}</p>
-              <p><strong>destination: </strong>{props.data.destination}</p>
-              <p><strong>date: </strong>{createDate(props.data.date)}</p>
-              <p><strong>hour: </strong>{props.data.hour}</p>
-              <p><strong>price: </strong>{props.data.price}</p>
-              <p><strong>seats: </strong>{props.data.seats}</p>
-              <p><strong>createdat: </strong>{createDate(props.data.created_at)}</p>
+              <p><strong>Origin: </strong>{props.data.origin}</p>
+              <p><strong>Destination: </strong>{props.data.destination}</p>
+              <p><strong>Date: </strong>{createDate(props.data.date)}</p>
+              <p><strong>Hour: </strong>{props.data.hour}</p>
+              <p><strong>Price: </strong>{props.data.price}</p>
+              <p><strong>Seats: </strong>{props.data.seats}</p>
+              <p><strong>Created at: </strong>{createDate(props.data.created_at)}</p>
 
             </div>
           </div>
