@@ -34,12 +34,12 @@ return new class extends Migration {
 
             $table->foreign('idtravels', 'fk_bookings_travels1_idx')
                 ->references('id')->on('travels')
-                ->onDelete('no action')
+                ->onDelete('Cascade')
                 ->onUpdate('no action');
 
             $table->foreign('idusers', 'fk_bookings_users1_idx')
                 ->references('id')->on('users')
-                ->onDelete('no action')
+                ->onDelete('Cascade')
                 ->onUpdate('no action');
         });
     }
