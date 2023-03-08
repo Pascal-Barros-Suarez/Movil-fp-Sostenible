@@ -24,8 +24,8 @@ class TableActionButtons extends Component {
     }
 
     render() {
-        return (
-            <div className="btn-group" role="group" >
+        return (''
+           /*  <div className="btn-group" role="group" >
                 <button type="button"
                     className="btn btn-outline-primary btn-sm"
                     data-bs-toggle="modal"
@@ -37,7 +37,7 @@ class TableActionButtons extends Component {
                 <ViewModal modalId={this.props.eachRowId} viajeData={this.state} />
                 <button id='edit' type="button" className="btn btn-outline-info btn-sm"><i id='edit' className="bi bi-tools" /></button>
                 <button id='delete' type="button" className="btn btn-outline-danger btn-sm"><i id='delete' className="bi bi-trash3-fill" /></button>
-            </div>
+            </div> */
         )
     }
 

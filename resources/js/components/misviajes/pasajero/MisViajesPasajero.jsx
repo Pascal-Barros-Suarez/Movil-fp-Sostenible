@@ -58,9 +58,9 @@ function MisViajesPassenger(props) {
         <td>{booking.travelData.destination}</td>
         <td>{booking.travelData.date}</td>
         <td>{booking.travelData.hour}</td>
-        <td>
+{/*         <td>
           <a href={'/bookings/' + booking.id}><i className="bi bi-eye" /></a>
-        </td>
+        </td> */}
       </tr>
     );
   });
@@ -91,7 +91,7 @@ function MisViajesPassenger(props) {
                         <th scope="col-auto" >Destination</th>
                         <th scope="col-auto" >Date</th>
                         <th scope="col-auto" >Hour</th>
-                        <th scope="col-auto" >Actions</th>
+                        {/* <th scope="col-auto" >Actions</th> */}
                       </tr>
                     </MDBTableHead>
                     <MDBTableBody>

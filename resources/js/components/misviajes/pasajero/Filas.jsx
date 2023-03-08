@@ -25,9 +25,9 @@ class Filas extends Component {
         <td scope="col-auto" >{this.props.data.price}</td>
         <td scope="col-auto" >{this.props.data.seats}</td>
         <td scope="col-auto" >{Filas.createDate(this.props.data.created_at)}</td>
-        <td scope="col-auto" >
+        {/* <td scope="col-auto" >
           <TableActionButtons eachRowId={this.props.data.id} />
-        </td>
+        </td> */}
       </tr>
     )
   }
