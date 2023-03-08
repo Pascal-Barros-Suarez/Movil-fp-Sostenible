@@ -48,19 +48,21 @@ Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])-
 Route::get('/search', function () {return Inertia::render('Search');});
 Route::get('/get/viajes/list/all', [TravelsController::class, 'getViajesListAll'])->name('all->viajes');
 Route::post('/search', [TravelsController::class, 'search'])->name('search');
-////////////////////////////////
-////////////////////////////////
-//solicitar viaje
-Route::post('/bookings', [BookingsController::class, 'store']);
-////////////////////////////////
-////////////////////////////////
-//F O R M //
+// solicitar viaje 
+Route::middleware(['auth'])->group(function () {
+    Route::get('/bookings', [BookingsController::class, 'index'])->name('bookings');
+    Route::post('/bookings', [BookingsController::class, 'store'])->name('bookings.store');
+    Route::get('/bookings/{id}', [BookingsController::class, 'show'])->name('bookings.show');
+});
+
+// F O R M //
 Route::get('/newride', [TravelsController::class, 'show'])->middleware(['auth', 'verified'])->name('newride.form');
 Route::post('/newride', [TravelsController::class, 'create'])->middleware(['auth', 'verified'])->name('newride');
 
-// lista de viajes if auth
+// lista de viajes conductor if auth
 Route::get('/get/viajes/list', [TravelsController::class, 'getViajesList'])->middleware(['auth', 'verified'])->name('viajes.lista');
-
+//lista de viajes pasajero if auth
+Route::get('/get/bookings/list', [TravelsController::class, 'getViajesList'])->middleware(['auth', 'verified'])->name('viajes.lista');
 // detalles viajes
 Route::post('/get/individual/viaje/details', [TravelsController::class, 'getViajesList'])->name('viajes.details');
 

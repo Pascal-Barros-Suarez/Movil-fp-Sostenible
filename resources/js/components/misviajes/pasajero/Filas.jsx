@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TableActionButtons from './TableActionButtons';
+
 class Filas extends Component {
   static createDate(date) {
     const fecha = new Date(date);
@@ -10,26 +11,25 @@ class Filas extends Component {
     return `${anio}/${mes}/${dia}`;
   }
 
-  constructor(props) {
-    super(props);
-  }
-
   render() {
+    const { id, origin, destination, date, hour, price, seats, created_at } = this.props.data;
+
     return (
       <tr>
-        <th scope="col-auto" >{this.props.data.id}</th>
-        <td scope="col-auto" >{this.props.data.origin}</td>
-        <td scope="col-auto" >{this.props.data.destination}</td>
-        <td scope="col-auto" >{Filas.createDate(this.props.data.date)}</td>
-        <td scope="col-auto" >{this.props.data.hour}</td>
-        <td scope="col-auto" >{this.props.data.price}</td>
-        <td scope="col-auto" >{this.props.data.seats}</td>
-        <td scope="col-auto" >{Filas.createDate(this.props.data.created_at)}</td>
-        <td scope="col-auto" >
-          <TableActionButtons eachRowId={this.props.data.id} />
+        <th scope="col-auto">{id}</th>
+        <td scope="col-auto">{origin}</td>
+        <td scope="col-auto">{destination}</td>
+        <td scope="col-auto">{Filas.createDate(date)}</td>
+        <td scope="col-auto">{hour}</td>
+        <td scope="col-auto">{price}</td>
+        <td scope="col-auto">{seats}</td>
+        <td scope="col-auto">{Filas.createDate(created_at)}</td>
+        <td scope="col-auto">
+          <TableActionButtons eachRowId={id} />
         </td>
       </tr>
-    )
+    );
   }
 }
+
 export default Filas;
