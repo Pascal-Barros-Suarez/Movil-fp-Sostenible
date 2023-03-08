@@ -36,13 +36,13 @@ export default function RideForm(props) {
             <div className="row justify-content-center">
                 <div className="col-md-10">
                     <Card className=" mb-4">
-                        <div className="card-header"><i className=" bi bi-signpost-split"> Create Ride:</i></div>
+                        <div className="card-header"><i className=" bi bi-signpost-split"> Create Trip:</i></div>
                         <div className="card-body">
                             <div className=" col-12 ps-2">
                                 <Form onSubmit={handleSubmit}>
                                     <Form.Group className="mt-4" controlId="formBasicOrigin">
                                         <Form.Label ><i className=" bi bi-car-front"> Origin</i></Form.Label>
-                                        <FormControl type="text" name='origin' required placeholder={'introduce the origin'} onChange={(e) =>
+                                        <FormControl type="text" name='origin' required placeholder={'Madrid'} onChange={(e) =>
                                             setData("origin", e.target.value)
                                         } /> {errors.origin && (
                                             <div className="alert alert-danger">
@@ -52,8 +52,8 @@ export default function RideForm(props) {
                                     </Form.Group>
 
                                     <Form.Group className="mt-4" controlId="formBasicDestinty" >
-                                        <Form.Label ><i className="bi bi-sign-stop-fill"> Destiny</i></Form.Label>
-                                        <FormControl type="text" name='destination' required placeholder={'Introduce destinty'} onChange={(e) =>
+                                        <Form.Label ><i className="bi bi-sign-stop-fill"> Destination</i></Form.Label>
+                                        <FormControl type="text" name='destination' required placeholder={'Sevilla'} onChange={(e) =>
                                             setData("destination", e.target.value)
                                         } /> {errors.destinty && (
                                             <div className="alert alert-danger">
@@ -86,7 +86,7 @@ export default function RideForm(props) {
 
                                     <Form.Group className="mt-4" controlId="formBasic" >
                                         <Form.Label ><i className=" bi bi-cash-coin"> Price</i></Form.Label>
-                                        <FormControl type="number" name='price' required placeholder={'introduce the price'} onChange={(e) =>
+                                        <FormControl type="number" name='price' required placeholder={'7'} onChange={(e) =>
                                             setData("price", e.target.value)
                                         } /> {errors.price && (
                                             <div className="alert alert-danger">
@@ -97,7 +97,7 @@ export default function RideForm(props) {
 
                                     <Form.Group className="mt-4" controlId="formBasic" >
                                         <Form.Label >🪑<i> Seats</i> </Form.Label>
-                                        <FormControl type="number" name='seats' required placeholder={'introduce the max of passegers'} onChange={(e) =>
+                                        <FormControl type="number" name='seats' required placeholder={'2'} onChange={(e) =>
                                             setData("seats", e.target.value)
                                         } /> {errors.seats && (
                                             <div className="alert alert-danger">
@@ -109,7 +109,7 @@ export default function RideForm(props) {
 
                                     <div className="d-flex justify-content-end mb-3 m-3 ">
                                         <Button className="me-4 btn-sm" variant="success" type="submit">
-                                            Create Ride
+                                            Create Trip
                                         </Button>
                                     </div>
 
