@@ -49,7 +49,7 @@ Route::get('/search', function () {return Inertia::render('Search');});
 Route::get('/get/viajes/list/all', [TravelsController::class, 'getViajesListAll'])->name('all->viajes');
 Route::post('/search', [TravelsController::class, 'search'])->name('search');
 // solicitar viaje 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth'])->name('')->group(function () {
     Route::get('/bookings', [BookingsController::class, 'index'])->name('bookings');
     Route::post('/bookings', [BookingsController::class, 'store'])->name('bookings.store');
     Route::get('/bookings/{id}', [BookingsController::class, 'show'])->name('bookings.show');

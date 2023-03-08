@@ -10,6 +10,12 @@ use Inertia\Inertia;
 
 class BookingsController extends Controller
 {
+    public function index()
+    {
+        $bookings = auth()->user()->bookings;
+    
+        return response()->json(['bookings' => $bookings], 200);
+    }
     //
 
     public function store(Request $request)
@@ -30,7 +36,7 @@ class BookingsController extends Controller
     $booking->idusers = $idusers;
     $booking->save();
 
-    Session::flash('success', 'You !');
+    Session::flash('success');
 
     // Return a response indicating success
     return Inertia::render('Home');

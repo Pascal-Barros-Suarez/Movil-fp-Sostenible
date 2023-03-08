@@ -60,4 +60,8 @@ class UserController extends Controller
     {
         //dd('llega');
     }
+    public function bookings()
+{
+    return $this->hasMany(Booking::class);
+}
 }
