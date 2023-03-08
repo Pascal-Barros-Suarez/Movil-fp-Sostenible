@@ -78,10 +78,12 @@ export default function Profile(props) {
                     <div className="col-sm-4 col-12 ps-3">
                       {created === lastUpdated ? (
                         <p>This Profile was created at: {created}</p>
-                      ) : (<>
-                        <p>This Profile was created at: {created}</p>
-                        <p>Last updated at: {lastUpdated}</p>
-                      </>)}
+                      ) : (
+                        <>
+                          <p>This Profile was created at: {created}</p>
+                          <p>Last updated at: {lastUpdated}</p>
+                        </>
+                      )}
 
                       <p>Email verified: {auth.user.email_verified_at ? 'Yes' : 'No'}</p>
                       <p>Validated: {auth.user.validated ? 'Yes' : 'No'}</p>
