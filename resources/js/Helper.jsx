@@ -10,16 +10,15 @@ export function dibujaFlash() {
   if (flash.success) {
     message = flash.success ?
       <Toast
-        className="d-inline-block m-1"
+        className="d-inline-block m-1 rounded-5"
         bg='success'
         key='alert_flash'
-        onClose={() => setShow(false)} show={show} delay={3500} autohide>
-        <Toast.Header closeButton={false}>
-          <strong className="me-auto">Alert Successfully</strong>
-        </Toast.Header>
-        <Toast.Body>
-          <h3 className="fa fa-flash">{flash.success}</h3>
-        </Toast.Body>
+        onClose={() => setShow(false)} show={show} delay={4050} autohide>
+        <div className="d-flex justify-content-between">
+          <Toast.Body>
+            <h5 className="fa fa-flash text-white">{flash.success}</h5>
+          </Toast.Body>
+          <button type="button" className="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button></div>
       </Toast> : ''
     flash.success = null;
   } else if (flash.error) {
@@ -30,12 +29,10 @@ export function dibujaFlash() {
         bg='danger'
         key='alert_flash'
         onClose={() => setShow(false)} show={show} delay={3500} autohide>
-        <Toast.Header closeButton={false}>
-          <strong className="me-auto">Alert Error</strong>
-        </Toast.Header>
         <Toast.Body>
-          <h3 className="fa fa-flash">{flash.error}</h3>
+          <strong className="fa fa-flash text-white">{flash.error}</strong>
         </Toast.Body>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
       </Toast> : ''
     flash.error = null;
   }

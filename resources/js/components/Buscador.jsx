@@ -50,7 +50,7 @@ export default function Buscador(props) {
                         )}
                     </Form.Group>
 
-                    <Form.Group controlId="date" className="col-sm-3 col-6 ps-2 mt-1">
+                    <Form.Group controlId="date" className="col-sm ms-1 mt-1">
                         <Form.Label hidden><strong>Date</strong></Form.Label>
                         <Form.Control type="date" name='date' placeholder="date" onChange={(e) =>
                             setData("date", e.target.value)
@@ -61,7 +61,7 @@ export default function Buscador(props) {
                         )}
                     </Form.Group>
 
-                    <Button variant="primary" type="submit" className="col-sm-3 col-6 ps-4 mt-1">
+                    <Button variant="primary" type="submit" className="col-sm-3 col-6 ps-4 ms-2 mt-1">
                         Buscar
                     </Button>
                 </Row>
