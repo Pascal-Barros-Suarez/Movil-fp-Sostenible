@@ -70,7 +70,7 @@ export default function RideForm(props) {
             <div className="row justify-content-center">
                 <div className="col-md-10">
                     <Card className=" mb-4">
-                        <div className="card-header"><i className=" bi bi-signpost-split"> Create Trip:</i></div>
+                        <div className="card-header"><i className=" bi bi-signpost-split"> Create Ride:</i></div>
                         <div className="card-body">
                             <div className=" col-12 ps-2">
                                 <Form>
@@ -85,7 +85,7 @@ export default function RideForm(props) {
                                         )}
                                     </Form.Group>
 
-                                    <Form.Group className="mt-4" controlId="formBasicDestinty" >
+                                    <Form.Group className="mt-4" controlId="formBasicDestination" >
                                         <Form.Label ><i className="bi bi-sign-stop-fill"> Destination</i></Form.Label>
                                         <FormControl type="text" name='destination' required placeholder={'Sevilla'} onChange={(e) =>
                                             setData("destination", e.target.value)
@@ -120,7 +120,7 @@ export default function RideForm(props) {
 
                                     <Form.Group className="mt-4" controlId="formBasic" >
                                         <Form.Label ><i className=" bi bi-cash-coin"> Price</i></Form.Label>
-                                        <FormControl type="number" name='price' required placeholder={'7'} onChange={(e) =>
+                                        <FormControl type="number" name='price' required placeholder={'23$'} onChange={(e) =>
                                             setData("price", e.target.value)
                                         } /> {errors.price && (
                                             <div className="alert alert-danger">
@@ -131,7 +131,7 @@ export default function RideForm(props) {
 
                                     <Form.Group className="mt-4" controlId="formBasic" >
                                         <Form.Label >🪑<i> Seats</i> </Form.Label>
-                                        <FormControl type="number" name='seats' required placeholder={'2'} onChange={(e) =>
+                                        <FormControl type="number" name='seats' required placeholder={'introduce the max of passegers'} onChange={(e) =>
                                             setData("seats", e.target.value)
                                         } /> {errors.seats && (
                                             <div className="alert alert-danger">
@@ -141,8 +141,8 @@ export default function RideForm(props) {
                                     </Form.Group>
 
                                     <div className="d-flex justify-content-end mb-3 m-3 ">
-                                        <Button className="me-4 btn-sm" variant="success" type="submit">
-                                            Create Trip
+                                        <Button data-bs-toggle="modal" data-bs-target="#exampleModal" className="me-4 btn-sm" variant="success">
+                                            Create Ride
                                         </Button>
                                     </div>
                                 </Form>
