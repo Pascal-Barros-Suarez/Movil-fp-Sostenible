@@ -5,7 +5,8 @@ import { usePage } from "@inertiajs/react";
 //componentes
 import Navigation from '../components/Navigation';
 // import Dashboard from '../components/Dashboard';
-import MisViajes from '../components/misviajes/MisViajes';
+import MisViajes from '../components/misviajes/conductor/MisViajes';
+import MisViajesPasajero from '../components/misviajes/pasajero/MisViajesPasajero';
 import Footer from '../components/Footer.jsx';
 
 export default function Initiated() {
@@ -21,6 +22,7 @@ export default function Initiated() {
             <Navigation />
             {dibujaflash()}
             <MisViajes />
+            <MisViajesPasajero />
             <Footer />
         </>
     )
