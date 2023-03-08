@@ -22,6 +22,7 @@ function TableActionButtons(props) {
             {
                 onSuccess: () => {
                     console.log("successfully");
+                    window.location.reload(); // refresh the page after successful deletion
                 },
                 onError: () => { console.log('deleted failure', errors); },
             }, data

@@ -86,13 +86,15 @@ class TravelsController extends Controller
         return Inertia::render('Search', ['travels' => $travels]);
     }
 
-    public function destroy(REQUEST $request)
+    public function destroy(Request $request)
     {
-        $id = $request->id;
-        $travel = Travels::findOrFail($id);
-        $travel->delete();
+        $viaje = Travels::findOrFail($request->id);
+        $viaje->delete();
 
-        Session::flash('success', 'Travel was successfully deleted.');
-        return Inertia::render('Home');
+        return $this->redirectAfterDelete(); // call the redirectAfterDelete function
+    }
+    public function redirectAfterDelete()
+    {
+        return redirect('/home');
     }
 }
