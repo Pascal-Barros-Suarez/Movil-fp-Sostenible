@@ -22,11 +22,15 @@ function MisViajesPasajero(props) {
         console.log(data);
         const bookingsWithDetails = data.bookings.map(function (booking) {
           return {
-            ...booking,
+            id: booking.id,
+            time: booking.time,
+            price: booking.price,
+            seats: booking.seats,
             travelData: {
               origin: booking.origin,
               destination: booking.destination,
               date: booking.date,
+              hour: booking.hour,
             },
           };
         });
@@ -52,10 +56,7 @@ function MisViajesPasajero(props) {
         <td>{booking.travelData.origin}</td>
         <td>{booking.travelData.destination}</td>
         <td>{booking.travelData.date}</td>
-        <td>{booking.time}</td>
-        <td>{booking.price}</td>
-        <td>{booking.seats}</td>
-        <td>{booking.created_at}</td>
+        <td>{booking.hour}</td>
         <td>
           <a href={'/bookings/' + booking.id}>Ver</a>
         </td>
@@ -88,9 +89,6 @@ function MisViajesPasajero(props) {
                       <th scope="col-auto" >Destino</th>
                       <th scope="col-auto" >Fecha</th>
                       <th scope="col-auto" >Hora</th>
-                      <th scope="col-auto" >Precio</th>
-                      <th scope="col-auto" >Asientos</th>
-                      <th scope="col-auto" >Creación</th>
                       <th scope="col-auto" >Acciones</th>
                     </tr>
                   </MDBTableHead>
