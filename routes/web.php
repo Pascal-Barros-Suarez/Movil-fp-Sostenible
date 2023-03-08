@@ -54,6 +54,7 @@ Route::get('/search', function () {
 });
 Route::get('/get/viajes/list/all', [TravelsController::class, 'getViajesListAll'])->name('all->viajes');
 Route::post('/search', [TravelsController::class, 'search'])->name('search');
+Route::post('/travels-delete', [TravelsController::class, 'destroy'])->middleware(['auth', 'verified'])->name('travels->delete');
 
 // solicitar viaje 
 Route::middleware(['auth'])->name('')->group(function () {
@@ -61,6 +62,7 @@ Route::middleware(['auth'])->name('')->group(function () {
     Route::post('/bookings', [BookingsController::class, 'store'])->name('bookings.store');
     Route::get('/bookings/{id}', [BookingsController::class, 'show'])->name('bookings.show');
 });
+
 Route::get('/travels/{id}', [TravelsController::class, 'getTravelById'])->name('getTravelById');
 
 // F O R M //
@@ -69,8 +71,10 @@ Route::post('/newride', [TravelsController::class, 'create'])->middleware(['auth
 
 // lista de viajes conductor if auth
 Route::get('/get/viajes/list', [TravelsController::class, 'getViajesList'])->middleware(['auth', 'verified'])->name('viajes.lista');
+
 //lista de viajes pasajero if auth
 Route::get('/get/bookings/list', [TravelsController::class, 'getViajesList'])->middleware(['auth', 'verified'])->name('viajes.lista');
+
 // detalles viajes
 Route::post('/get/individual/viaje/details', [TravelsController::class, 'getViajesList'])->name('viajes.details');
 

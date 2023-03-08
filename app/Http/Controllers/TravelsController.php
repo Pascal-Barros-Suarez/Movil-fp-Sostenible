@@ -85,4 +85,14 @@ class TravelsController extends Controller
 
         return Inertia::render('Search', ['travels' => $travels]);
     }
+
+    public function destroy(REQUEST $request)
+    {
+        $id = $request->id;
+        $travel = Travels::findOrFail($id);
+        $travel->delete();
+
+        Session::flash('success', 'Travel was successfully deleted.');
+        return Inertia::render('Home');
+    }
 }
