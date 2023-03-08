@@ -15,9 +15,13 @@ export default function Footer() {
               <li className="list-inline-item">⋅</li>
               <li className="list-inline-item"><Link href="#!">Privacy Policy</Link></li>
             </ul>
-            <div>
-              <p className="text-muted small mb-4 mb-lg-0">© MoviFP 2023.        <img width="30em" height='auto' src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/License_icon-mit-2.svg/768px-License_icon-mit-2.svg.png' alt="Mit License" /></p>
-              {/* All rights reserved */}</div>
+            <div className=" col-lg-3 col-12">
+              <div className="d-flex justify-content-around">
+                <p className="text-muted small mb-4 mb-lg-0">© MoviFP 2023.</p>
+                <img width="30em" height='30em' src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/License_icon-mit-2.svg/768px-License_icon-mit-2.svg.png' alt="Mit License" />
+                {/* All rights reserved */}
+              </div>
+            </div>
           </div>
           <div className="col-lg-6 h-100 text-center text-lg-end my-auto">
             <ul className="list-inline mb-0">
