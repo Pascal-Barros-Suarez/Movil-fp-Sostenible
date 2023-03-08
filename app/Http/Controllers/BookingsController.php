@@ -22,8 +22,8 @@ class BookingsController extends Controller
             'destination' => $travel->destination,
             'date' => $travel->date,
             'hour' => $travel->hour, // Use 'hour' property instead of 'time'
-            // 'price' => $booking->price,
-            // 'seats' => $booking->seats,
+            'price' => $booking->price,
+            'seats' => $booking->seats,
             'created_at' => $booking->created_at,
         ];
     });
@@ -54,4 +54,13 @@ class BookingsController extends Controller
         // Return a response indicating success
         return Inertia::render('Home');
     }
+
+    public function show($id)
+{
+    // Retrieve the booking record from the database
+    $booking = Bookings::findOrFail($id);
+
+    // Return a view with the booking data
+    return view('bookings.show', compact('booking'));
+}
 }
