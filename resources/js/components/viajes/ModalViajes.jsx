@@ -1,12 +1,41 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import axios from 'axios';
+import { useForm, usePage } from "@inertiajs/react";
 
 function ModalViajes(props) {
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const { data, post, errors } = useForm({
+    idtravels: props.data.id
+  });
+
+
+  ///////////// IF CONFIRM /////////////
+  const handleConfirmar = (e) => {
+    // Insert record in bookingsTable with idtravel and iduser here
+    e.preventDefault();
+    post(
+      "/bookings",
+      {
+        onSuccess: () => {
+          console.log('reserva');
+        },
+        onError: () => { console.log('errores estos', errors); },
+      },
+      data
+    );
+  };
+  /////////////////////////////////
+
+  /* axios.post('/bookings', {
+    idtravels: props.data.id
+    // idusers: props.data.idusers
+  }) */
+  ///////////////////////////////////
 
   return (
     <>
@@ -24,17 +53,19 @@ function ModalViajes(props) {
           <Modal.Title>Desea registrarse en este trayecto?</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <strong>Origen:</strong> {props.data.origen}<br />
-          <strong>Destino:</strong> {props.data.destino}<br />
-          <strong>Fecha:</strong> {props.data.fecha}<br />
-          <strong>Hora:</strong> {props.data.hora}<br />
+          <strong>Origen:</strong> {props.data.origin}<br />
+          <strong>Destino:</strong> {props.data.destination}<br />
+          <strong>Fecha:</strong> {props.data.date}<br />
+          <strong>Hora:</strong> {props.data.hour}<br />
+          <strong>Precio:</strong> {props.data.price}<br />
+          <strong>Asientos:</strong> {props.data.seats}<br />
           Recuerde que una vez que acepte, ya no podrá cancelar el viaje.
         </Modal.Body>
         <Modal.Footer>
           <Button variant="danger" onClick={handleClose}>
             Cancelar
           </Button>
-          <Button variant="primary">Confirmar</Button>
+          <Button variant="primary" onClick={handleConfirmar}>Confirmar</Button>
         </Modal.Footer>
       </Modal>
     </>

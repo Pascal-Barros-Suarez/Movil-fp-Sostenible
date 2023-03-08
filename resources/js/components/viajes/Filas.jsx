@@ -1,11 +1,7 @@
-import React, { Component } from 'react';
-// import TableActionButtons from './TableActionButtons';
-import ModalViajes from './ModalViajes';
-
-
+import React from 'react';
+import TableActionButtons from './TableActionButtons';
 
 function Filas(props) {
-
   const createDate = (date) => {
     const fecha = new Date(date);
     const anio = fecha.getFullYear();
@@ -34,7 +30,7 @@ function Filas(props) {
       <td>{props.data.seats}</td>
       <td>{createDate(props.data.created_at)}</td>
       <td>
-        <ModalViajes data={data} />
+        <TableActionButtons data={props.data} />
       </td>
     </tr>
   )

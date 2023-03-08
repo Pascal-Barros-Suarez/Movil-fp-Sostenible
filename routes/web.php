@@ -8,6 +8,7 @@ use Inertia\Inertia;
 use App\Http\Controllers\TravelsController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\BookingsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,8 +27,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->midd
 //errores 404 y 500
 Route::get('/404', function () {Route::view('404');});
 Route::get('/500', function () {Route::view('500');});
-
-
+//////////////////////////////
+Route::get('/register', function () {
+    Route::view('register');
+});
+//////////////////////////////
 Auth::routes(['verify' => true]); //Activa la verificación en las rutas para laravel/ui
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
 
@@ -44,12 +48,15 @@ Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])-
 Route::get('/search', function () {return Inertia::render('Search');});
 Route::get('/get/viajes/list/all', [TravelsController::class, 'getViajesListAll'])->name('all->viajes');
 Route::post('/search', [TravelsController::class, 'search'])->name('search');
-
+////////////////////////////////
+////////////////////////////////
+//solicitar viaje
+Route::post('/bookings', [BookingsController::class, 'store']);
+////////////////////////////////
+////////////////////////////////
 //F O R M //
 Route::get('/newride', [TravelsController::class, 'show'])->middleware(['auth', 'verified'])->name('newride.form');
 Route::post('/newride', [TravelsController::class, 'create'])->middleware(['auth', 'verified'])->name('newride');
-//////////////////////////////
-//////////////////////////////
 
 // lista de viajes if auth
 Route::get('/get/viajes/list', [TravelsController::class, 'getViajesList'])->middleware(['auth', 'verified'])->name('viajes.lista');
