@@ -35,7 +35,7 @@ function ModalViajes(props) {
     <>
       {props.data.idusers != auth.user.id &&
         <Button variant="primary" onClick={handleShow}>
-          Solicitar
+          Order
         </Button>
       }
 
@@ -50,19 +50,19 @@ function ModalViajes(props) {
           <Modal.Title>Desea registrarse en este trayecto?</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <strong>Origen:</strong> {props.data.origin}<br />
-          <strong>Destino:</strong> {props.data.destination}<br />
-          <strong>Fecha:</strong> {props.data.date}<br />
-          <strong>Hora:</strong> {props.data.hour}<br />
-          <strong>Precio:</strong> {props.data.price}<br />
-          <strong>Asientos:</strong> {props.data.seats}<br />
-          Recuerde que una vez que acepte, ya no podrá cancelar el viaje.
+          <strong>Origin:</strong> {props.data.origin}<br />
+          <strong>Destination:</strong> {props.data.destination}<br />
+          <strong>Date:</strong> {props.data.date}<br />
+          <strong>Hour:</strong> {props.data.hour}<br />
+          <strong>Price:</strong> {props.data.price}<br />
+          <strong>Seats:</strong> {props.data.seats}<br />
+          Remember that once you accept, you will not be able to cancel the trip.
         </Modal.Body>
         <Modal.Footer>
           <Button variant="danger" onClick={handleClose}>
-            Cancelar
+            Cancel
           </Button>
-          <Button variant="primary" onClick={handleConfirmar}>Confirmar</Button>
+          <Button variant="primary" onClick={handleConfirmar}>Confirm</Button>
         </Modal.Footer>
       </Modal>
     </>

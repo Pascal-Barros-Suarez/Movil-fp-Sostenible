@@ -41,7 +41,7 @@ export default function Buscador(props) {
 
                     <Form.Group controlId="destino" className="col-sm-3 col-6  mt-1">
                         <Form.Label hidden><strong>Destination</strong></Form.Label>
-                        <Form.Control type="text" name='destination' placeholder="Destiny" onChange={(e) =>
+                        <Form.Control type="text" name='destination' placeholder="Destination" onChange={(e) =>
                             setData("destination", e.target.value)
                         } /> {errors.destination && (
                             <div className="alert alert-danger">
@@ -62,7 +62,7 @@ export default function Buscador(props) {
                     </Form.Group>
 
                     <Button variant="primary" type="submit" className="col-sm-3 col-6 ps-4 ms-2 mt-1">
-                        Buscar
+                        Search
                     </Button>
                 </Row>
             </Form>

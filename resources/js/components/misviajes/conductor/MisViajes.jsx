@@ -42,8 +42,8 @@ function Table(props) {
 
       {/* botones */}
       <div className='mt-4 d-flex justify-content-center'>
-        <Button type="btn" aria-label="Conductor" className=" me-1 btn-sm btn-primary disabled" onClick={props.changing} >Conductor</Button>
-        <Button type="btn" aria-label="Pasajero" className="  me-4 btn-sm btn-primary" onClick={props.changing} >Pasajero</Button>
+        <Button type="btn" aria-label="Driver" className=" me-1 btn-sm btn-primary disabled" onClick={props.changing} >Driver</Button>
+        <Button type="btn" aria-label="Passenger" className="  me-4 btn-sm btn-primary" onClick={props.changing} >Passenger</Button>
       </div>
 
       <Container>
@@ -51,7 +51,7 @@ function Table(props) {
           <div className="col-md-11">
             <Card className=" mb-4">
               <div className="card-header">
-                <h1 className="text-center">Mis Viajes</h1>
+                <h1 className="text-center">My Trips</h1>
               </div>
               <div className="card-body">
                 <div className="table-responsive">
