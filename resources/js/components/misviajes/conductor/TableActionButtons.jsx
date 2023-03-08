@@ -50,7 +50,7 @@ function TableActionButtons(props) {
                 <i className="bi bi-eye" />
             </Button>
             <ViewModal modalId={props.eachRowId} viajeData={viajeDetails} />
-            <Button id='edit' type="button" className=" btn-light btn btn-outline-info btn-sm"><i id='edit' className="bi bi-tools" /></Button>
+            {/* <Button id='edit' type="button" className=" btn-light btn btn-outline-info btn-sm"><i id='edit' className="bi bi-tools" /></Button> */}
             <Form onSubmit={handleSubmit}><Button id='delete' type="submit" className=" btn-light btn btn-outline-danger rounded-end btn-sm" onClick={() => { setData("id", props.eachRowId); }}><i id='delete' className="bi bi-trash3-fill" /></Button></Form>
         </div>
     );
