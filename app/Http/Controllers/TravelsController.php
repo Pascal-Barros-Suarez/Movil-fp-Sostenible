@@ -46,13 +46,13 @@ class TravelsController extends Controller
         return Inertia::render('Home');
     }
 
-
     /////////////  LISTA DE VIAJES  //////////////
     public function getViajesListAll()
     {
         $travels = Travels::orderBy('id', 'DESC')->get();
         return response()->json($travels);
     }
+
     /////////////  LISTA DE VIAJES DASHBOARD  //////////////
     public function getViajesList()
     {
@@ -60,6 +60,7 @@ class TravelsController extends Controller
         $travels = Travels::where('idusers', $user_id)->orderBy('id', 'DESC')->get();
         return response()->json($travels);
     }
+
     /////////////  DETALLES DE VIAJES DASHBOARD INDIVIDUAL //////////////
     public function getViajesDetails(Request $request)
     {
@@ -78,13 +79,10 @@ class TravelsController extends Controller
         $destination = $validatedData['destination'];
         $date = $validatedData['date'];
 
-
         $travels = Travels::where('origin', $origin)
             ->orWhere('destination', $destination)
             ->orWhere('date', $date)->latest()->get()->all();
 
-        //dd($travels);
-        //return $travels->paginate(3);
         return Inertia::render('Search', ['travels' => $travels]);
     }
 }

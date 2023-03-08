@@ -41,10 +41,10 @@ export default function Profile(props) {
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
             <div className="modal-header">
-              <h1>Borrar usuario:</h1>
+              <h1>Delete User {auth.user.name}:</h1>
             </div>
             <div className="modal-body">
-              <h5>Seguro que quiere borrar el usuario {auth.user.name}?</h5>
+              <h5>Are you sure you want to delete the user?</h5>
             </div>
             <div className="modal-footer">
               <Button type="btn" data-bs-dismiss="modal" aria-label="Cancel" className="me-4 btn-sm btn-danger">No</Button>
