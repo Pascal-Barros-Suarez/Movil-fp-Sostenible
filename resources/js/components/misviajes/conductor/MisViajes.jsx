@@ -42,8 +42,8 @@ function Table(props) {
 
       {/* botones */}
       <div className='mt-4 d-flex justify-content-center'>
-        <Button type="btn" aria-label="Conductor" className=" me-1 btn-sm btn-primary disabled" onClick={props.changing} >Conductor</Button>
-        <Button type="btn" aria-label="Pasajero" className="  me-4 btn-sm btn-primary" onClick={props.changing} >Pasajero</Button>
+        <Button type="btn" aria-label="Driver" className=" me-1 btn-sm btn-primary disabled" onClick={props.changing} >Driver</Button>
+        <Button type="btn" aria-label="Passenger" className="  me-4 btn-sm btn-primary" onClick={props.changing} >Passenger</Button>
       </div>
 
       <Container>
@@ -51,7 +51,7 @@ function Table(props) {
           <div className="col-md-11">
             <Card className=" mb-4">
               <div className="card-header">
-                <h1 className="text-center">Mis Viajes</h1>
+                <h1 className="text-center">My Trips</h1>
               </div>
               <div className="card-body">
                 <div className="table-responsive">
@@ -62,11 +62,11 @@ function Table(props) {
                     <MDBTableHead>
                       <tr>
                         <th scope="col-auto">#</th>
-                        <th scope="col-auto">Origen</th>
-                        <th scope="col-auto">Destino</th>
-                        <th scope="col-auto">Fecha</th>
-                        <th scope="col-auto">Precio</th>
-                        <th scope="col-auto">Acciones</th>
+                        <th scope="col-auto">Origin</th>
+                        <th scope="col-auto">Destination</th>
+                        <th scope="col-auto">Date</th>
+                        <th scope="col-auto">Price</th>
+                        <th scope="col-auto">Actions</th>
                       </tr>
                     </MDBTableHead>
                     <MDBTableBody>{displayViajes}</MDBTableBody>

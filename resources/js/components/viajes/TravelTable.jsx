@@ -46,7 +46,7 @@ function Table(props) {
         <div className="col-md-10">
           <Card className=" mb-4">
             <div className="card-header">
-              <h1 className="text-center">Viajes disponibles</h1>
+              <h1 className="text-center">Available trips</h1>
             </div>
             <div className="card-body">
               <div className="table-responsive">
@@ -57,25 +57,25 @@ function Table(props) {
                         #
                       </th>
                       <th scope="col" width="12%">
-                        Origen
+                        Origin
                       </th>
                       <th scope="col" width="12%">
-                        Destino
+                        Destination
                       </th>
                       <th scope="col" width="12%">
-                        Fecha
+                        Date
                       </th>
                       <th scope="col" width="12%">
-                        Hora
+                        Hour
                       </th>
                       <th scope="col" width="12%">
-                        Precio
+                        Price
                       </th>
                       <th scope="col" width="12%">
-                        Asientos
+                        Seats
                       </th>
                       <th scope="col" width="12%">
-                        Creación
+                        Created at
                       </th>
                       <th scope="col" width="12%"></th>
                     </tr>
