@@ -21,16 +21,15 @@ class BookingsController extends Controller
             'origin' => $travel->origin,
             'destination' => $travel->destination,
             'date' => $travel->date,
-            'time' => $booking->time,
-            'price' => $booking->price,
-            'seats' => $booking->seats,
+            'hour' => $travel->hour, // Use 'hour' property instead of 'time'
+            // 'price' => $booking->price,
+            // 'seats' => $booking->seats,
             'created_at' => $booking->created_at,
         ];
     });
 
     return response()->json(['bookings' => $bookingsWithDetails], 200);
 }
-    //
 
     public function store(Request $request)
     {
