@@ -59,8 +59,8 @@ export default function RideForm(props) {
                             <p><b>Seats:</b>  {data.seats}</p>
                         </div>
                         <div className="modal-footer">
-                            <Button variant="btn" data-bs-dismiss="modal" aria-label="Cancel" className="me-4 btn-sm btn-danger">No</Button>
-                            <Form onSubmit={handleSubmit}><Button type="submit" data-bs-dismiss="modal" className="me-4 btn-sm btn-success" aria-label="accept">Yes</Button></Form>
+                            <Button variant="btn" data-bs-dismiss="modal" aria-label="Cancel" className="me-4 btn-sm btn-danger">Cancel</Button>
+                            <Form onSubmit={handleSubmit}><Button type="submit" data-bs-dismiss="modal" className="me-4 btn-sm btn-success" aria-label="accept">Confirm</Button></Form>
                         </div>
                     </div>
                 </div>

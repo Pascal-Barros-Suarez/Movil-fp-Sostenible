@@ -8,6 +8,7 @@ function ModalViajes(props) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const { auth } = usePage().props;
 
   const { data, post, errors } = useForm({
     idtravels: props.data.id
@@ -29,19 +30,15 @@ function ModalViajes(props) {
       data
     );
   };
-  /////////////////////////////////
-
-  /* axios.post('/bookings', {
-    idtravels: props.data.id
-    // idusers: props.data.idusers
-  }) */
-  ///////////////////////////////////
-
+  console.log(auth);
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        Solicitar
-      </Button>
+      {props.data.idusers != auth.user.id &&
+        <Button variant="primary" onClick={handleShow}>
+          Solicitar
+        </Button>
+      }
+
 
       <Modal
         show={show}
