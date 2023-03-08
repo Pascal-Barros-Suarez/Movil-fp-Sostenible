@@ -12,6 +12,8 @@ export default function Profile(props) {
     id: auth.user.id,
   });
 
+  console.log(data);
+
   function handleSubmit(e) {
     e.preventDefault();
     post(
@@ -21,12 +23,9 @@ export default function Profile(props) {
           console.log("user" + auth.user.name + " deleted successfully");
         },
         onError: () => { console.log('deleted failure', errors); },
-      },
-      data
+      }//,data
     );
   }
-
-
 
   return (
     <div className="container-fluid logoBackground">
@@ -48,7 +47,7 @@ export default function Profile(props) {
             </div>
             <div className="modal-footer">
               <Button type="btn" data-bs-dismiss="modal" aria-label="Cancel" className="me-4 btn-sm btn-danger">No</Button>
-              <Form onSubmit={handleSubmit}><Button type="submit" className="me-4 btn-sm btn-primary" aria-label="accept">Yes</Button></Form>
+              <Form onSubmit={handleSubmit}><Button type="submit" data-bs-dismiss="modal" className="me-4 btn-sm btn-primary" aria-label="accept">Yes</Button></Form>
 
             </div>
           </div>

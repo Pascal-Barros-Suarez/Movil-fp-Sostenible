@@ -36,13 +36,13 @@ return new class extends Migration {
 
             $table->foreign('user1_id', 'fk_ratings_users1_idx')
                 ->references('id')->on('users')
-                ->onDelete('no action')
-                ->onUpdate('no action');
+                ->onDelete('Cascade')
+                ->onUpdate('Cascade');
 
             $table->foreign('user2_id', 'fk_ratings_users2_idx')
                 ->references('id')->on('users')
-                ->onDelete('no action')
-                ->onUpdate('no action');
+                ->onDelete('Cascade')
+                ->onUpdate('Cascade');
         });
     }
 

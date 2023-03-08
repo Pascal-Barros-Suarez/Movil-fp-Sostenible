@@ -33,26 +33,26 @@ class BookingsController extends Controller
     //
 
     public function store(Request $request)
-{
-    // Retrieve the data from the request
-    $idtravels = $request->input('idtravels');
+    {
+        // Retrieve the data from the request
+        $idtravels = $request->input('idtravels');
 
-    // Get the ID of the logged-in user
-    $idusers = Auth::id();
-    if (!$idusers) {
-        // User is not authenticated, return error response
-        return redirect()->route('register');
+        // Get the ID of the logged-in user
+        $idusers = Auth::id();
+        if (!$idusers) {
+            // User is not authenticated, return error response
+            return redirect()->route('register');
+        }
+
+        // Insert the record in the bookingsTable
+        $booking = new Bookings();
+        $booking->idtravels = $idtravels;
+        $booking->idusers = $idusers;
+        $booking->save();
+
+        Session::flash('success', 'You have booked a place on the trip!');
+
+        // Return a response indicating success
+        return Inertia::render('Home');
     }
-
-    // Insert the record in the bookingsTable
-    $booking = new Bookings();
-    $booking->idtravels = $idtravels;
-    $booking->idusers = $idusers;
-    $booking->save();
-
-    Session::flash('success');
-
-    // Return a response indicating success
-    return Inertia::render('Home');
-}
 }

@@ -38,8 +38,8 @@ return new class extends Migration {
 
             $table->foreign('idusers', 'fk_travels_users_idx')
                 ->references('id')->on('users')
-                ->onDelete('no action')
-                ->onUpdate('no action');
+                ->onDelete('Cascade')
+                ->onUpdate('Cascade');
         });
     }
 

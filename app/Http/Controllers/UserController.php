@@ -56,12 +56,17 @@ class UserController extends Controller
         return Inertia::render('Initiated'); //->with('success', 'The password was changed successfully!');
     }
 
-    function deleteUser(Request $request, User $user)
+    function deleteUser()
     {
-        //dd('llega');
+        $user = User::findOrFail(Auth::id());
+        $user->delete();
+
+        Session::flash('success', 'The user was successfully deleted.');
+        return Inertia::render('Initiated');
     }
+
     public function bookings()
-{
-    return $this->hasMany(Booking::class);
-}
+    {
+        return $this->hasMany(Booking::class);
+    }
 }
