@@ -11,11 +11,25 @@ use Inertia\Inertia;
 class BookingsController extends Controller
 {
     public function index()
-    {
-        $bookings = auth()->user()->bookings;
+{
+    $bookings = auth()->user()->bookings;
 
-        return response()->json(['bookings' => $bookings], 200);
-    }
+    $bookingsWithDetails = $bookings->map(function ($booking) {
+        $travel = $booking->travel;
+        return [
+            'id' => $booking->id,
+            'origin' => $travel->origin,
+            'destination' => $travel->destination,
+            'date' => $travel->date,
+            'time' => $booking->time,
+            'price' => $booking->price,
+            'seats' => $booking->seats,
+            'created_at' => $booking->created_at,
+        ];
+    });
+
+    return response()->json(['bookings' => $bookingsWithDetails], 200);
+}
     //
 
     public function store(Request $request)
