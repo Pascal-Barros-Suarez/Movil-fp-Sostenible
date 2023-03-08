@@ -22,9 +22,13 @@ export default function RideForm(props) {
             "newride",
             {
                 onSuccess: () => {
-                    console.log('success')
+                    console.log('success');
+                    //Inertia.get(route('/home'));
                 },
-                onError: () => { console.log('errores estos', errors); },
+                onError: () => {
+                    console.log('errores estos', errors);
+                    //Inertia.get(route('/home'));
+                },
             },
             data
         );
@@ -33,13 +37,43 @@ export default function RideForm(props) {
 
     return (
         <Container>
+            {/* modal para avisar */}
+            <div
+                className="modal fade"
+                id="exampleModal"
+                tabIndex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h1>Add Travel:</h1>
+                        </div>
+                        <div className="modal-body">
+                            <h5>Are you sure you want to add this ride?</h5>
+                            <p><b>Origin:</b>  {data.origin}</p>
+                            <p><b>Destination:</b>  {data.destination}</p>
+                            <p><b>Date:</b>  {data.date}</p>
+                            <p><b>Hour:</b>  {data.hour}</p>
+                            <p><b>Price:</b>  {data.price}</p>
+                            <p><b>Seats:</b>  {data.seats}</p>
+                        </div>
+                        <div className="modal-footer">
+                            <Button variant="btn" data-bs-dismiss="modal" aria-label="Cancel" className="me-4 btn-sm btn-danger">No</Button>
+                            <Form onSubmit={handleSubmit}><Button type="submit" data-bs-dismiss="modal" className="me-4 btn-sm btn-success" aria-label="accept">Yes</Button></Form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/* /// */}
+
             <div className="row justify-content-center">
                 <div className="col-md-10">
                     <Card className=" mb-4">
                         <div className="card-header"><i className=" bi bi-signpost-split"> Create Trip:</i></div>
                         <div className="card-body">
                             <div className=" col-12 ps-2">
-                                <Form onSubmit={handleSubmit}>
+                                <Form>
                                     <Form.Group className="mt-4" controlId="formBasicOrigin">
                                         <Form.Label ><i className=" bi bi-car-front"> Origin</i></Form.Label>
                                         <FormControl type="text" name='origin' required placeholder={'Madrid'} onChange={(e) =>
@@ -55,7 +89,7 @@ export default function RideForm(props) {
                                         <Form.Label ><i className="bi bi-sign-stop-fill"> Destination</i></Form.Label>
                                         <FormControl type="text" name='destination' required placeholder={'Sevilla'} onChange={(e) =>
                                             setData("destination", e.target.value)
-                                        } /> {errors.destinty && (
+                                        } /> {errors.destination && (
                                             <div className="alert alert-danger">
                                                 {errors.destination}
                                             </div>
@@ -106,13 +140,11 @@ export default function RideForm(props) {
                                         )}
                                     </Form.Group>
 
-
                                     <div className="d-flex justify-content-end mb-3 m-3 ">
                                         <Button className="me-4 btn-sm" variant="success" type="submit">
                                             Create Trip
                                         </Button>
                                     </div>
-
                                 </Form>
                             </div>
                         </div>

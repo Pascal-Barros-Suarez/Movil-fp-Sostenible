@@ -1,17 +1,60 @@
 import React from "react";
-import { usePage } from '@inertiajs/react';
-import { Link } from '@inertiajs/react';
-import { Container, Card, Col, Row, } from "react-bootstrap";
+import { dibujaFlash } from '../../Helper';
+import { useForm, usePage } from '@inertiajs/react';
+import { Form, Container, Card, Col, Row, Button } from "react-bootstrap";
 
 export default function Profile(props) {
   const { auth } = usePage().props; // para poder acceder tienes que entrar en el handleInertiaRequest en midelware y establecerlo
-  console.log(auth)
   let created = createDate(auth.user.created_at);
   let lastUpdated = createDate(auth.user.updated_at);
+
+  const { data, post, errors } = useForm({
+    id: auth.user.id,
+  });
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    post(
+      "/profile-delete",
+      {
+        onSuccess: () => {
+          console.log("user" + auth.user.name + " deleted successfully");
+        },
+        onError: () => { console.log('deleted failure', errors); },
+      },
+      data
+    );
+  }
+
 
 
   return (
     <div className="container-fluid logoBackground">
+      {dibujaFlash()}
+      {/* modal para avisar */}
+      <div
+        className="modal fade"
+        id="exampleModal"
+        tabIndex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h1>Delete User {auth.user.name}:</h1>
+            </div>
+            <div className="modal-body">
+              <h5>Are you sure you want to delete the user?</h5>
+            </div>
+            <div className="modal-footer">
+              <Button type="btn" data-bs-dismiss="modal" aria-label="Cancel" className="me-4 btn-sm btn-danger">No</Button>
+              <Form onSubmit={handleSubmit}><Button type="submit" className="me-4 btn-sm btn-primary" aria-label="accept">Yes</Button></Form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* /// */}
       <Container>
         <div className="row justify-content-center">
           <div className="col-md-10">
@@ -48,8 +91,9 @@ export default function Profile(props) {
                     <p>Blocked: {auth.user.blocked ? 'Yes' : 'No'}</p>
                   </div>
                   <div className="d-flex justify-content-end mb-3 m-3 ">
-                    <a type="btn" href="#" className=" me-4 btn-sm btn-primary" onClick={props.changePassword} >Change Password</a>
-                    <a type="btn" href="#" className=" me-4 btn-sm btn-primary" onClick={props.change} >Edit</a>
+                    <Button type="btn" aria-label="Delete" data-bs-toggle="modal" data-bs-target="#exampleModal" className=" text-decoration-underline me-4 btn-sm btn-danger">Delete</Button>
+                    <Button type="btn" aria-label="Change Password" className=" text-decoration-underline me-4 btn-sm btn-primary" onClick={props.changePassword} >Change Password</Button>
+                    <Button type="btn" aria-label="Edit" className=" text-decoration-underline me-4 btn-sm btn-primary" onClick={props.change} >Edit</Button>
                   </div>
                 </Row>
               </div>

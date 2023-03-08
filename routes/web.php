@@ -20,28 +20,18 @@ use App\Http\Controllers\BookingsController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-/* Route::get('/', function () {
-    return view('welcome');
-}); */
-
-Route::get('/', function () {
-    return Inertia::render('Initiated');
-});
+Route::get('/', function () {return Inertia::render('Initiated');});
 //una vez logueados
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
+
 //errores 404 y 500
-Route::get('/404', function () {
-    Route::view('404');
-});
-Route::get('/500', function () {
-    Route::view('500');
-});
-//////////////////////////////
+Route::get('/404', function () {Route::view('404');});
+Route::get('/500', function () {Route::view('500');});
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 Route::get('/register', function () {
     Route::view('register');
 });
-//////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 Auth::routes(['verify' => true]); //Activa la verificación en las rutas para laravel/ui
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
 
@@ -49,14 +39,13 @@ Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])-
 Route::get('/profile', [UserController::class, 'show'])->middleware(['auth', 'verified'])->name('User.show->Profile');
 Route::post('/profile-edit', [UserController::class, 'editProfile'])->middleware(['auth', 'verified'])->name('User.edit->Profile');
 Route::post('/profile-edit-password', [UserController::class, 'editPassword'])->middleware(['auth', 'verified'])->name('User.edit.password->Profile');
+Route::post('/profile-delete', [UserController::class, 'deleteUser'])->middleware(['auth', 'verified'])->name('User.edit.password->Profile');
 
 Auth::routes(['verify' => true]); //Activa la verificación en las rutas para laravel/ui
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
 
 // Todas los viajes
-Route::get('/search', function () {
-    return Inertia::render('Search');
-});
+Route::get('/search', function () {return Inertia::render('Search');});
 Route::get('/get/viajes/list/all', [TravelsController::class, 'getViajesListAll'])->name('all->viajes');
 Route::post('/search', [TravelsController::class, 'search'])->name('search');
 // solicitar viaje 

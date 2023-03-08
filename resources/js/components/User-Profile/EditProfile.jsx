@@ -6,7 +6,7 @@ import { Container, Card, Row, Form, FormControl, Button } from "react-bootstrap
 
 export default function EditProfile(props) {
     const { auth } = usePage().props; // para poder acceder tienes que entrar en el handleInertiaRequest en midelware y establecerlo
-    //console.log(auth.user);profile-edit
+    //console.log(auth.user);
     const { data, setData, post, processing, errors } = useForm({
         name: auth.user.name,
         age: auth.user.age,
@@ -97,6 +97,9 @@ export default function EditProfile(props) {
 
 
                                             <div className="d-flex justify-content-end mb-3 m-3 ">
+                                                <button className="me-4 btn-secondary btn-sm" variant="success" onClick={props.change}>
+                                                    Cancel
+                                                </button>
                                                 <Button className="me-4 btn-sm" variant="success" type="submit">
                                                     Edit
                                                 </Button>

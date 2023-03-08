@@ -7,22 +7,22 @@ import ReactPaginate from "react-paginate";
 import { Container, Card } from "react-bootstrap";
 import { MDBTable, MDBTableBody, MDBTableHead } from "mdb-react-ui-kit";
 
-function Table() {
+function Table(props) {
   const [viajes, setViajes] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   let prop = usePage().props;
 
   useEffect(() => {
-    getViajesList();
-  }, prop.travels);
+    prop.travels ? getViajesList() : null;
+  });
 
-  // console.log(prop.travels);
 
   const getViajesList = () => {
     axios.get("/get/viajes/list/all/").then((response) => {
       setViajes(prop.travels ? prop.travels : response.data);
     });
   };
+  getViajesList()
 
   const handlePageClick = (data) => {
     let selected = data.selected;

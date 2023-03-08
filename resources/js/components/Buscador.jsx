@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import { useForm } from "@inertiajs/react";
 
-export default function Buscador() {
+export default function Buscador(props) {
     const { data, setData, post, errors } = useForm({
         origin: '',
         destination: '',

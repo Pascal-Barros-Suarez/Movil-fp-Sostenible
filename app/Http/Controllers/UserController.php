@@ -40,6 +40,7 @@ class UserController extends Controller
 
         Session::flash('success', 'The User was updated successfully!');
     }
+
     function editPassword(PasswordForm $request, User $user)
     {
         // Valida los datos del formulario.
@@ -53,5 +54,10 @@ class UserController extends Controller
 
         Session::flash('success', 'The password was changed successfully!');
         return Inertia::render('Initiated'); //->with('success', 'The password was changed successfully!');
+    }
+
+    function deleteUser(Request $request, User $user)
+    {
+        //dd('llega');
     }
 }
