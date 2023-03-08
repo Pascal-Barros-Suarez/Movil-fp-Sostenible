@@ -36,7 +36,7 @@ export default function Header() {
                 <form className="form-subscribe" id="contactForm" onSubmit={handleSubmit}>
                   <div className="row">
                     {/* Departure */}
-                    <div className="col mt-2" style={{ flex: '1.5 0 0%' }}>
+                    <div className="col-sm-3 col-6  mt-2" style={{ flex: '1.5 0 0%' }}>
                       <input className="form-control form-control-lg" id="origin" name="origin" type="text" placeholder="Leaving from" onChange={(e) =>
                         setData("origin", e.target.value)
                       } />
@@ -46,7 +46,7 @@ export default function Header() {
                         Origin is not valid.</div>
                     </div>
                     {/* Destination */}
-                    <div className="col mt-2" style={{ flex: '1.5 0 0%' }}>
+                    <div className="col-sm-3 col-6  mt-2" style={{ flex: '1.5 0 0%' }}>
                       <input className="form-control form-control-lg" id="destination" name="destination" type="text" placeholder="Going to" onChange={(e) =>
                         setData("destination", e.target.value)
                       } />
@@ -56,7 +56,7 @@ export default function Header() {
                         Destination is not valid.</div>
                     </div>
                     {/* Date*/}
-                    <div className="col mt-2" style={{ flex: '1 0 0%' }}>
+                    <div className="col-auto mt-2" style={{ flex: '1 0 0%' }}>
                       <input className="form-control form-control-lg" id="date" name="date" type="date" onChange={(e) =>
                         setData("date", e.target.value)
                       } />
