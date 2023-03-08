@@ -96,14 +96,20 @@ export default function RideForm(props) {
                                         )}
                                     </Form.Group>
 
-                                    <Form.Group className="mt-4" controlId="formBasicDate" >
-                                        <Form.Label ><i className=" bi bi-calendar-date"> Date</i></Form.Label>
-                                        <FormControl type="date" name='date' required onChange={(e) =>
-                                            setData("date", e.target.value)
-                                        } /> {errors.date && (
-                                            <div className="alert alert-danger">
-                                                {errors.date}
-                                            </div>
+                                    <Form.Group className="mt-4" controlId="formBasicDate">
+                                        <Form.Label>
+                                            <i className=" bi bi-calendar-date"> Date</i>
+                                        </Form.Label>
+                                        <FormControl
+                                            type="date"
+                                            name="date"
+                                            required
+                                            min={new Date().toISOString().split('T')[0]} // set min date to today
+                                            max={new Date(new Date().getTime() + 7948800000).toISOString().split('T')[0]} // set max date to 3 months from now
+                                            onChange={(e) => setData("date", e.target.value)}
+                                        />{" "}
+                                        {errors.date && (
+                                            <div className="alert alert-danger">{errors.date}</div>
                                         )}
                                     </Form.Group>
 
@@ -139,7 +145,7 @@ export default function RideForm(props) {
                                             </div>
                                         )}
                                     </Form.Group>
-{/* introduce the max of passegers */}
+                                    {/* introduce the max of passegers */}
                                     <div className="d-flex justify-content-end mb-3 m-3 ">
                                         <Button data-bs-toggle="modal" data-bs-target="#exampleModal" className="me-4 btn-sm" variant="success">
                                             Create Ride
