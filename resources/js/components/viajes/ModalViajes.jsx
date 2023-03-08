@@ -14,7 +14,6 @@ function ModalViajes(props) {
     idtravels: props.data.id
   });
 
-
   ///////////// IF CONFIRM /////////////
   const handleConfirmar = (e) => {
     // Insert record in bookingsTable with idtravel and iduser here
@@ -30,39 +29,49 @@ function ModalViajes(props) {
       data
     );
   };
+
   console.log(auth);
+
   return (
     <>
-      {props.data.idusers != auth.user.id &&
+      {auth.user ? ( // conditional to check if user is authenticated
+        props.data.idusers != auth.user.id && (
+          <Button variant="primary" onClick={handleShow}>
+            Order
+          </Button>
+        )
+      ) : (
         <Button variant="primary" onClick={handleShow}>
           Order
         </Button>
-      }
+      )}
 
-
-      <Modal
-        show={show}
-        onHide={handleClose}
-        backdrop="static"
-        keyboard={false}
-      >
+      <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
         <Modal.Header closeButton>
-          <Modal.Title>Desea registrarse en este trayecto?</Modal.Title>
+          <Modal.Title>Would you like to register for this trip?</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <strong>Origin:</strong> {props.data.origin}<br />
-          <strong>Destination:</strong> {props.data.destination}<br />
-          <strong>Date:</strong> {props.data.date}<br />
-          <strong>Hour:</strong> {props.data.hour}<br />
-          <strong>Price:</strong> {props.data.price}<br />
-          <strong>Seats:</strong> {props.data.seats}<br />
+          <strong>Origin:</strong> {props.data.origin}
+          <br />
+          <strong>Destination:</strong> {props.data.destination}
+          <br />
+          <strong>Date:</strong> {props.data.date}
+          <br />
+          <strong>Hour:</strong> {props.data.hour}
+          <br />
+          <strong>Price:</strong> {props.data.price}
+          <br />
+          <strong>Seats:</strong> {props.data.seats}
+          <br />
           Remember that once you accept, you will not be able to cancel the trip.
         </Modal.Body>
         <Modal.Footer>
           <Button variant="danger" onClick={handleClose}>
             Cancel
           </Button>
-          <Button variant="primary" onClick={handleConfirmar}>Confirm</Button>
+          <Button variant="primary" onClick={handleConfirmar}>
+            Confirm
+          </Button>
         </Modal.Footer>
       </Modal>
     </>
@@ -70,3 +79,8 @@ function ModalViajes(props) {
 }
 
 export default ModalViajes;
+
+
+
+
+

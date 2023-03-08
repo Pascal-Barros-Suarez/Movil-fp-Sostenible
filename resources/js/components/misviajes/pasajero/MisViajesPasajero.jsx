@@ -79,7 +79,7 @@ function MisViajesPassenger(props) {
           <div className="col-md-11">
             <Card className=" mb-4">
               <div className="card-header">
-                <h1 className="text-center">My Travels as a <small className="text-muted"><u>Passenger</u></small></h1>
+                <h1 className="text-center">My Trips as a <small className="text-muted"><u>Passenger</u></small></h1>
               </div>
               <div className="card-body">
                 <div className="table-responsive">
